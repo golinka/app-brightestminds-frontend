@@ -5,7 +5,7 @@ import store from "./store";
 
 /* eslint-disable */
 import "@/assets/scss/app.scss";
-import 'bootstrap/scss/bootstrap.scss';
+import "bootstrap/scss/bootstrap.scss";
 
 Vue.config.productionTip = false;
 
