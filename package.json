@@ -1,5 +1,7 @@
 {
   "name": "app-brightestminds-frontend",
+  "description": "Application for subscriptions to the company's products",
+  "author": "Artem Holinka <artem.holinka@gmail.com>",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -8,6 +10,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "bootstrap": "^4.3.1",
     "vue": "^2.6.6",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1"

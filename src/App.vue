@@ -1,29 +1,43 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view />
+  <div>
+    <app-header></app-header>
+    <main class="content">
+      <div class="row">
+        <div class="col-md-4 d-none d-md-block">
+          <app-sidebar></app-sidebar>
+        </div>
+        <div class="col-8 col-md-8">
+          <transition name="fade" mode="out-in">
+            <router-view></router-view>
+          </transition>
+        </div>
+      </div>
+    </main>
+    <app-footer></app-footer>
   </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+<script>
+import Header from "./layout/components/Header.vue";
+import Sidebar from "./layout/components/Sidebar/Sidebar.vue";
+import Footer from "./layout/components/Footer.vue";
+
+export default {
+  components: {
+    appHeader: Header,
+    appSidebar: Sidebar,
+    appFooter: Footer
   }
+};
+</script>
+
+<style>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>

@@ -3,6 +3,10 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 
+/* eslint-disable */
+import "@/assets/scss/app.scss";
+import 'bootstrap/scss/bootstrap.scss';
+
 Vue.config.productionTip = false;
 
 new Vue({
