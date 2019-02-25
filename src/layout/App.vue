@@ -18,9 +18,9 @@
 </template>
 
 <script>
-import Header from './layout/components/Header.vue'
-import Sidebar from './layout/components/Sidebar/Sidebar.vue'
-import Footer from './layout/components/Footer.vue'
+import Header from './components/Header.vue'
+import Sidebar from './components/Sidebar/Sidebar.vue'
+import Footer from './components/Footer.vue'
 
 export default {
   components: {
@@ -32,12 +32,12 @@ export default {
 </script>
 
 <style>
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.5s;
-}
-.fade-enter,
-.fade-leave-to {
-  opacity: 0;
-}
+  .fade-enter-active,
+  .fade-leave-active {
+    transition: opacity 0.5s;
+  }
+  .fade-enter,
+  .fade-leave-to {
+    opacity: 0;
+  }
 </style>
