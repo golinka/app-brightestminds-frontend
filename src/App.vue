@@ -18,9 +18,9 @@
 </template>
 
 <script>
-import Header from "./layout/components/Header.vue";
-import Sidebar from "./layout/components/Sidebar/Sidebar.vue";
-import Footer from "./layout/components/Footer.vue";
+import Header from './layout/components/Header.vue'
+import Sidebar from './layout/components/Sidebar/Sidebar.vue'
+import Footer from './layout/components/Footer.vue'
 
 export default {
   components: {
@@ -28,7 +28,7 @@ export default {
     appSidebar: Sidebar,
     appFooter: Footer
   }
-};
+}
 </script>
 
 <style>

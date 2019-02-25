@@ -6,11 +6,11 @@
 </template>
 
 <script>
-import SidebarMenu from "./SidebarMenu.vue";
+import SidebarMenu from './SidebarMenu.vue'
 
 export default {
   components: {
     appSidebarMenu: SidebarMenu
   }
-};
+}
 </script>
