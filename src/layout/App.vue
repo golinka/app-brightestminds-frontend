@@ -3,7 +3,7 @@
     <Header></Header>
     <main class="container pt-4 pb-5">
       <div class="row">
-        <div class="col-md-3 col-lg-4 d-none d-md-block">
+        <div class="col-md-3 col-lg-3 d-none d-md-block">
           <Sidebar></Sidebar>
         </div>
         <div class="col-8 col-md-8">
@@ -19,7 +19,7 @@
 
 <script>
 import Header from './components/Header.vue'
-import Sidebar from './components/Sidebar/Sidebar.vue'
+import Sidebar from './components/Sidebar.vue'
 import Footer from './components/Footer.vue'
 
 export default {

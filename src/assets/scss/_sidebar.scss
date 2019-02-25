@@ -1,20 +1,63 @@
 @import '_variables';
 
 .sidebar {
+  border-right: 2px solid $sidebar-border;
+
   &-menu {
-    margin-bottom: 2em;
+    margin-bottom: 2.5em;
 
     &__title {
       font-family: 'Lato', sans-serif;
       font-weight: 700;
       color: black;
       font-size: 1.2em;
-      margin-bottom: 1em;
+      margin-bottom: .7em;
     }
 
     &__links {
       li {
-        list-style: none;
+        display: flex;
+        align-items: center;
+        margin-bottom: .7em;
+        font-family: 'Lato', sans-serif;
+        position: relative;
+        cursor: pointer;
+
+        svg {
+          width: 1.2em;
+          height: 1.2em;
+          fill: $sidebar-link;
+          transition: all .3 ease;
+        }
+
+        a {
+          display: block;
+          margin-left: .7em;
+          color: $sidebar-link;
+          transition: all .3 ease;
+        }
+
+        &.active,
+        &:hover {
+          svg {
+            fill: $sidebar-link-active;
+          }
+
+          a {
+            color: $sidebar-link-active;
+            text-decoration: none;
+          }
+
+          &:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -2px;
+            width: 2px;
+            height: 100%;
+            background-color: $sidebar-border-active;
+          }
+        }
       }
     }
   }
