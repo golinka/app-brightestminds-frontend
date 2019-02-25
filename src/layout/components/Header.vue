@@ -20,7 +20,7 @@
                 <li><a href="https://brightestminds.io/case-studies/">Case studies</a></li>
                 <li><a href="https://brightestminds.io/about-us/">About us</a></li>
               </ul>
-              <app-sidebar-menu class="d-block d-md-none mt-1"></app-sidebar-menu>
+              <!-- <app-sidebar-menu class="d-block d-md-none mt-1"></app-sidebar-menu> -->
             </div>
             <div class="header__user d-flex align-items-center justify-content-end">
               <Icon name="brain"/>
@@ -43,13 +43,5 @@
 </template>
 
 <script>
-import SidebarMenu from './Sidebar/SidebarMenu'
-import Icon from './Icon'
-
-export default {
-  components: {
-    appSidebarMenu: SidebarMenu,
-    Icon
-  }
-}
+export default {}
 </script>
