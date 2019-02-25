@@ -13,7 +13,7 @@
     text-align: center;
   }
 
-  &__menu {
+  &-menu {
     padding: 0;
     margin: 0;
     
@@ -49,54 +49,54 @@
       }
     }
 
-    .icon-dashboard {
-      a:before {
-        background: url("../images/dashboard--icon.png") no-repeat;
-        background-size: contain;
-      }
-    }
-    .icon-mailshake {
-      a:before {
-        background: url("../images/mailshake--icon.png") no-repeat;
-        background-size: contain;
-      }
-    }
-    .icon-timetracker {
-      a:before {
-        background: url("../images/timetracker--icon.png") no-repeat;
-        background-size: contain;
-      }
-    }
-    .icon-timestats {
-      a:before {
-        background: url("../images/timestats--icon.png") no-repeat;
-        background-size: contain;
-      }
-    }
-    .icon-subscription {
-      a:before {
-        background: url("../images/subs--icon.png") no-repeat;
-        background-size: contain;
-      }
-    }
-    .icon-addresses {
-      a:before {
-        background: url("../images/address--icon.png") no-repeat;
-        background-size: contain;
-      }
-    }
-    .icon-details {
-      a:before {
-        background: url("../images/details--icon.png") no-repeat;
-        background-size: contain;
-      }
-    }
-    .icon-logout {
-      a:before {
-        background: url("../images/logout--icon.png") no-repeat;
-        background-size: contain;
-      }
-    }
+    // .icon-dashboard {
+    //   a:before {
+    //     background: url("../images/dashboard--icon.png") no-repeat;
+    //     background-size: contain;
+    //   }
+    // }
+    // .icon-mailshake {
+    //   a:before {
+    //     background: url("../images/mailshake--icon.png") no-repeat;
+    //     background-size: contain;
+    //   }
+    // }
+    // .icon-timetracker {
+    //   a:before {
+    //     background: url("../images/timetracker--icon.png") no-repeat;
+    //     background-size: contain;
+    //   }
+    // }
+    // .icon-timestats {
+    //   a:before {
+    //     background: url("../images/timestats--icon.png") no-repeat;
+    //     background-size: contain;
+    //   }
+    // }
+    // .icon-subscription {
+    //   a:before {
+    //     background: url("../images/subs--icon.png") no-repeat;
+    //     background-size: contain;
+    //   }
+    // }
+    // .icon-addresses {
+    //   a:before {
+    //     background: url("../images/address--icon.png") no-repeat;
+    //     background-size: contain;
+    //   }
+    // }
+    // .icon-details {
+    //   a:before {
+    //     background: url("../images/details--icon.png") no-repeat;
+    //     background-size: contain;
+    //   }
+    // }
+    // .icon-logout {
+    //   a:before {
+    //     background: url("../images/logout--icon.png") no-repeat;
+    //     background-size: contain;
+    //   }
+    // }
   }
 }
 

@@ -2,61 +2,54 @@
   <header class="header">
     <div class="container">
       <div class="row align-items-center">
-        <div class="header__logo col-7 col-sm-4">
-          <a href="/blog">
-            <img
-              src="https://brightestminds.io/blog/wp-content/themes/gridlove/assets/img/logo.svg"
-              alt="BrightestMinds blog logo"
-            />
-          </a>
+        <!-- LOGO -->
+        <div class="header__logo col-6 col-md-4">
+          <router-link tag="a" to="dashboard">
+            <Icon name="logo"/>
+            <span>App</span>
+          </router-link>
         </div>
-        <nav class="header__navigation col-5 col-sm-8" role="navigation">
-          <div class="header__menus" :class="{ active: toggleIcon }">
-            <ul class="justify-content-end align-items-baseline">
-              <li><a href="#how">How it works</a></li>
-              <li><a href="case.html">Case studies</a></li>
-              <li><a href="pricing.html">Pricing</a></li>
-              <li class="request"><a href="#">Request a demo</a></li>
-            </ul>
-            <app-sidebar-menu class="d-block d-md-none mt-1"></app-sidebar-menu>
+        <!-- LOGO END -->
+        <!-- NAVIGATION -->
+        <div class="header__navigation col-6 col-md-8" role="navigation">
+          <div class="row align-items-center justify-content-sm-end">
+            <div class="header__menu d-none d-md-flex flex-grow-1">
+              <ul class="justify-content-center align-items-baseline p-0">
+                <li><a href="https://brightestminds.io/">Home</a></li>
+                <li><a href="https://brightestminds.io/blog">Insights</a></li>
+                <li><a href="https://brightestminds.io/case-studies/">Case studies</a></li>
+                <li><a href="https://brightestminds.io/about-us/">About us</a></li>
+              </ul>
+              <app-sidebar-menu class="d-block d-md-none mt-1"></app-sidebar-menu>
+            </div>
+            <div class="header__user d-flex align-items-center justify-content-end">
+              <Icon name="brain"/>
+              <span class="pl-2">
+                Vlad Goloshchuk
+              </span>
+            </div>
+            <div class="header__toggle ml-3">
+              <Icon name="menu-icon"/>
+              <span>
+                <Icon name="close-icon"/>
+              </span>
+            </div>
           </div>
-          <div
-            class="header__toggle"
-            :class="{ active: toggleIcon }"
-            @click="toggleMenu"
-          >
-            <img
-              src="https://brightestminds.io/blog/wp-content/themes/gridlove/assets/img/menu-icon.svg"
-              alt="toggle icon"
-            />
-            <span
-              ><img
-                src="https://brightestminds.io/blog/wp-content/themes/gridlove/assets/img/close-icon.svg"
-                alt="close icon"
-            /></span>
-          </div>
-        </nav>
+        </div>
+        <!-- NAVIGATION END-->
       </div>
     </div>
   </header>
 </template>
 
 <script>
-import SidebarMenu from "./Sidebar/SidebarMenu.vue";
+import SidebarMenu from './Sidebar/SidebarMenu'
+import Icon from './Icon'
 
 export default {
-  data() {
-    return {
-      toggleIcon: false
-    };
-  },
-  methods: {
-    toggleMenu() {
-      this.toggleIcon = !this.toggleIcon;
-    }
-  },
   components: {
-    appSidebarMenu: SidebarMenu
+    appSidebarMenu: SidebarMenu,
+    Icon
   }
-};
+}
 </script>
