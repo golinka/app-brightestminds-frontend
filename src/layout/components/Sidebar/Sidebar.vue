@@ -1,16 +1,41 @@
 <template>
-  <div class="sidebar w-100 pt-5">
-    <h4 class="sidebar__title mb-3">My Account</h4>
-    <app-sidebar-menu></app-sidebar-menu>
+  <div class="sidebar">
+    <!-- SECTIONS MENU -->
+    <div class="sidebar-menu">
+      <div class="sidebar-menu__title">
+        Menu
+      </div>
+      <ul class="sidebar-menu__links">
+        <router-link tag="li" to="products">
+          <a>Products</a>
+        </router-link>
+      </ul>
+    </div>
+    <!-- END -->
+    <!-- DASHBOARD MENU -->
+    <div class="sidebar-menu">
+      <div class="sidebar-menu__title">
+        My Account
+      </div>
+      <ul class="sidebar-menu__links">
+        <router-link tag="li" to="products">
+          <a>Dashboard</a>
+        </router-link>
+        <router-link tag="li" to="products">
+          <a>Dashboard</a>
+        </router-link>
+        <router-link tag="li" to="products">
+          <a>Dashboard</a>
+        </router-link>
+        <router-link tag="li" to="products">
+          <a>Dashboard</a>
+        </router-link>
+      </ul>
+    </div>
+    <!-- END -->
   </div>
 </template>
 
 <script>
-import SidebarMenu from './SidebarMenu.vue'
-
-export default {
-  components: {
-    appSidebarMenu: SidebarMenu
-  }
-}
+export default {}
 </script>

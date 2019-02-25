@@ -1,10 +1,10 @@
 <template>
   <div>
-    <app-header></app-header>
-    <main class="content">
+    <Header></Header>
+    <main class="container pt-4 pb-5">
       <div class="row">
-        <div class="col-md-4 d-none d-md-block">
-          <app-sidebar></app-sidebar>
+        <div class="col-md-3 col-lg-4 d-none d-md-block">
+          <Sidebar></Sidebar>
         </div>
         <div class="col-8 col-md-8">
           <transition name="fade" mode="out-in">
@@ -13,7 +13,7 @@
         </div>
       </div>
     </main>
-    <app-footer></app-footer>
+    <Footer></Footer>
   </div>
 </template>
 
@@ -24,9 +24,9 @@ import Footer from './components/Footer.vue'
 
 export default {
   components: {
-    appHeader: Header,
-    appSidebar: Sidebar,
-    appFooter: Footer
+    Header,
+    Sidebar,
+    Footer
   }
 }
 </script>

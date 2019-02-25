@@ -1,130 +1,20 @@
 @import '_variables';
 
 .sidebar {
-  float: left;
-  background-color: $sidebar-background;
-  box-shadow: inset 0px 10px 25px rgba(0,0,0, 0.2);
-  min-height: 40rem;
-
-  &__title {
-    font-size: 2.2em;
-    color: white;
-    font-weight: 300;
-    text-align: center;
-  }
-
   &-menu {
-    padding: 0;
-    margin: 0;
-    
-    li {
-      width: 100%;
+    margin-bottom: 2em;
+
+    &__title {
+      font-family: 'Lato', sans-serif;
+      font-weight: 700;
+      color: black;
       font-size: 1.2em;
-      height: 2.8em;
-      line-height: 2.8em;
-      list-style: none;
-      border-top: 1px solid $sidebar-link-border;
-
-      a {
-        width: 10em;
-        color: $sidebar-link;
-        display: block;
-        margin: 0 auto;
-        text-decoration: none;
-        font-size: .9em;
-
-        &:hover {
-          color: white;
-        }
-
-        &:before {
-          content:'';
-          display: inline-block;
-          width: 1.25em;
-          height: 1.2em;
-          position: relative;
-          top: .25em;
-          margin-right: .6em;
-        }
-      }
+      margin-bottom: 1em;
     }
 
-    // .icon-dashboard {
-    //   a:before {
-    //     background: url("../images/dashboard--icon.png") no-repeat;
-    //     background-size: contain;
-    //   }
-    // }
-    // .icon-mailshake {
-    //   a:before {
-    //     background: url("../images/mailshake--icon.png") no-repeat;
-    //     background-size: contain;
-    //   }
-    // }
-    // .icon-timetracker {
-    //   a:before {
-    //     background: url("../images/timetracker--icon.png") no-repeat;
-    //     background-size: contain;
-    //   }
-    // }
-    // .icon-timestats {
-    //   a:before {
-    //     background: url("../images/timestats--icon.png") no-repeat;
-    //     background-size: contain;
-    //   }
-    // }
-    // .icon-subscription {
-    //   a:before {
-    //     background: url("../images/subs--icon.png") no-repeat;
-    //     background-size: contain;
-    //   }
-    // }
-    // .icon-addresses {
-    //   a:before {
-    //     background: url("../images/address--icon.png") no-repeat;
-    //     background-size: contain;
-    //   }
-    // }
-    // .icon-details {
-    //   a:before {
-    //     background: url("../images/details--icon.png") no-repeat;
-    //     background-size: contain;
-    //   }
-    // }
-    // .icon-logout {
-    //   a:before {
-    //     background: url("../images/logout--icon.png") no-repeat;
-    //     background-size: contain;
-    //   }
-    // }
-  }
-}
-
-@media all and (max-width: 992px) {
-  .sidebar {
-    font-size: 14px;
-  }
-}
-
-@media all and (max-width: 767px) {
-  .sidebar {
-    &__menu {
+    &__links {
       li {
-        height: auto;
-        line-height: inherit;
-
-        a {
-          font-size: inherit !important;
-        }
-
-        &:first-child {
-          border: none;
-        }
-
-        &:not(.request) {
-          font-size: 13px;
-          padding: 0 .8em !important;
-        }
+        list-style: none;
       }
     }
   }
