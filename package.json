@@ -1,9 +1,9 @@
 {
   "name": "app-brightestminds-frontend",
-  "description": "Application for subscriptions to the company's products",
-  "author": "Artem Holinka <artem.holinka@gmail.com>",
   "version": "0.1.0",
   "private": true,
+  "description": "Application for subscriptions to the company's products",
+  "author": "Artem Holinka <artem.holinka@gmail.com>",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -11,8 +11,6 @@
   },
   "dependencies": {
     "bootstrap": "^4.3.1",
-    "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-plugin-import": "^2.16.0",
     "vue": "^2.6.6",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1"
@@ -21,13 +19,16 @@
     "@vue/cli-plugin-babel": "^3.4.0",
     "@vue/cli-plugin-eslint": "^3.4.0",
     "@vue/cli-service": "^3.4.0",
-    "@vue/eslint-config-prettier": "^4.0.1",
+    "@vue/eslint-config-standard": "^4.0.0",
     "babel-eslint": "^10.0.1",
     "eslint": "^5.8.0",
     "eslint-plugin-vue": "^5.0.0",
-    "lint-staged": "^8.1.0",
     "node-sass": "^4.9.0",
     "sass-loader": "^7.1.0",
+    "svg-sprite-loader": "^4.1.3",
+    "svgo": "^1.1.0",
+    "svgo-loader": "^2.1.0",
+    "vue-cli-plugin-svg-sprite": "^0.3.1",
     "vue-template-compiler": "^2.5.21"
   },
   "eslintConfig": {
@@ -36,20 +37,10 @@
       "node": true
     },
     "extends": [
-      "airbnb-base",
       "plugin:vue/essential",
-      "@vue/prettier"
+      "@vue/standard"
     ],
-    "rules": {
-      "comma-dangle": ["error", "never"],
-      "class-methods-use-this": "off",
-      "global-require": "off",
-      "arrow-parens": ["error", "as-needed"],
-      "no-param-reassign": ["error", { "props": false }],
-      "no-restricted-syntax": ["error", "LabeledStatement", "WithStatement"],
-      "no-prototype-builtins": "off",
-      "no-underscore-dangle": ["error", { "allow": ["_driverInstance"] }]
-    },
+    "rules": {},
     "parserOptions": {
       "parser": "babel-eslint"
     }
