@@ -3,11 +3,28 @@
 @import '_sidebar';
 @import '_footer';
 @import '_icons';
+@import '_products';
 
 ul {
   padding: 0;
 
   li {
     list-style: none;
+  }
+}
+
+.page {
+  &__title {
+    font-family: 'Lato', sans-serif;
+    color: #3D4A5B;
+    font-weight: 700;
+    font-size: 2em;
+    margin-bottom: .7em;
+  }
+}
+
+@media all and (max-width: 1200px) {
+  .content {
+    font-size: 13px;
   }
 }

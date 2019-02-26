@@ -1,12 +1,12 @@
 <template>
   <div>
     <Header></Header>
-    <main class="container pt-4 pb-5">
+    <main class="content container py-sm-5 pt-2 pb-4">
       <div class="row">
-        <div class="col-md-3 col-lg-3 d-none d-md-block">
+        <div class="col-md-3 col-lg-2 d-none d-md-block">
           <Sidebar></Sidebar>
         </div>
-        <div class="col-8 col-md-8">
+        <div class="col-12 col-md-9 col-lg-10">
           <transition name="fade" mode="out-in">
             <router-view></router-view>
           </transition>
