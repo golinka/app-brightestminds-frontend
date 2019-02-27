@@ -1,6 +1,6 @@
 <template>
-  <div class="row">
-    <div class="page products">
+  <div class="page products ">
+    <div class="row">
       <div class="col-12">
         <h2 class="page__title">Products</h2>
       </div>
@@ -14,16 +14,20 @@
 </template>
 
 <script>
-import Product from '../components/Product'
+import { mapGetters } from 'vuex'
+import Product from '../components/ProductBlock'
 
 export default {
-  data () {
-    return {
-      products: [0, 1, 2, 3, 4, 5]
-    }
+  computed: {
+    ...mapGetters({
+      products: 'getProducts'
+    })
   },
   components: {
     Product
+  },
+  mounted () {
+    this.$store.dispatch('GET_PRODUCTS')
   }
 }
 </script>
