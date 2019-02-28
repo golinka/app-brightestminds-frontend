@@ -9,10 +9,10 @@
               <span>{{ product.title }}</span>
             </h2>
             <div class="product-page__price">
-              {{ getPriceWithInterval }}
+              {{ priceWithInterval }}
             </div>
             <div class="product-page__date">
-              {{ getDate }}
+              {{ date }}
             </div>
             <div class="product-page__buy">
               <button class="btn btn-secondary btn--buy">Buy</button>
@@ -28,7 +28,7 @@
             <p class="product-page__subtitle">Description</p>
             <p class="product-page__description">
               <ul>
-                <li v-for="(line, index) in getDescription" :key="index">{{ line }}</li>
+                <li v-for="(line, index) in description" :key="index">{{ line }}</li>
               </ul>
             </p>
           </div>
@@ -41,13 +41,15 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import { productMixin } from '@/mixins'
 
 export default {
-  mixins: [productMixin],
   computed: {
     ...mapGetters({
-      product: 'getProduct'
+      product: 'getProduct',
+      description: 'getDescription',
+      date: 'getDate',
+      priceWithInterval: 'getPriceWithInterval',
+      isPrivate: 'isPrivate'
     })
   },
   created () {
