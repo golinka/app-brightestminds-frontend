@@ -6,7 +6,7 @@
         Menu
       </div>
       <ul class="sidebar-menu__links">
-        <router-link active-class="active" tag="li" to="/products" exact>
+        <router-link active-class="active" tag="li" to="/products">
           <Icon name="products-icon"/>
           <a>Products</a>
         </router-link>

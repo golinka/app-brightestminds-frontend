@@ -13,6 +13,20 @@ ul {
   }
 }
 
+.btn {
+  &--buy {
+    font-size: 1.1em !important;
+    background-color: #73879d !important;
+    border-color: #728294 !important;
+    padding: .3em 1.5em !important;
+
+    &:hover {
+      background-color: #617285 !important;
+      border-color: #617285 !important;
+    }
+  }
+}
+
 .page {
   &__title {
     font-family: 'Lato', sans-serif;
@@ -20,11 +34,46 @@ ul {
     font-weight: 700;
     font-size: 2em;
     margin-bottom: .7em;
+
+    &.private {
+      span {
+        &:after {
+          position: relative;
+          top: -2em;
+          right: -.5em;
+          content: 'Private';
+          background-color: #73879d;
+          border-radius: .35em;
+          padding: .5em .8em;
+          font-size: .35em;
+          color: white;
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
+
+  &__content {
+    h3 {
+      font-family: 'Lato', sans-serif;
+      color: #3D4A5B;
+      font-weight: 700;
+      font-size: 1.6em;
+      margin-bottom: .7em;
+    }
   }
 }
 
 @media all and (max-width: 1200px) {
   .content {
     font-size: 13px;
+  }
+}
+
+@media all and (max-width: 575px) {
+  .product-page {
+    &__panel.top {
+      font-size: 10px;
+    }
   }
 }

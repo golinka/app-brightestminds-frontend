@@ -1,13 +1,13 @@
 <template>
   <div class="products__block col-lg-4 col-md-6 col-sm-6 col-12 mb-4">
     <div class="product">
-      <a class="product__head" :href="getProductLink">
+      <router-link tag="a" class="product__head" :to="getProductLink">
         <div class="product__title">{{ product.title }}</div>
-      </a>
+      </router-link>
       <div class="product__body">
         <div class="product__details">
           <div class="price">
-            <span>{{ getCurrency }}{{ product.price }}</span>
+            <span>{{ getPrice }}</span>
             <div class="price__interval">/ {{ product.interval }}</div>
           </div>
           <div class="date">
@@ -26,27 +26,14 @@
 </template>
 
 <script>
-import { slugify } from '@/mixins'
+import { productMixin } from '@/mixins'
 
 export default {
+  mixins: [productMixin],
   props: {
     product: {
       type: Object,
       required: true
-    }
-  },
-  computed: {
-    getCurrency () {
-      return this.product.currency === 'eur' ? '€' : '$'
-    },
-    getDate () {
-      return this.product.created_at.split(' ')[0]
-    },
-    getDescription () {
-      return this.product.description.split('\n')
-    },
-    getProductLink () {
-      return `/products/${slugify(this.product.title)}`
     }
   }
 }
