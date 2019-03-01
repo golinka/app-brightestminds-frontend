@@ -14,7 +14,7 @@
     </div>
     <!-- END -->
     <!-- DASHBOARD MENU -->
-    <div class="sidebar-menu">
+    <div class="sidebar-menu" v-if="isAuth">
       <div class="sidebar-menu__title">
         My Account
       </div>
@@ -38,9 +38,26 @@
       </ul>
     </div>
     <!-- END -->
+    <!-- ADMIN MENU -->
+    <div class="sidebar-menu" v-if="user && isAdmin">
+      <div class="sidebar-menu__title">
+        Admin panel
+      </div>
+      <ul class="sidebar-menu__links">
+      </ul>
+    </div>
+    <!-- END -->
   </div>
 </template>
 
 <script>
-export default {}
+import { mapGetters } from 'vuex'
+
+export default {
+  computed: mapGetters({
+    isAdmin: 'isAdmin',
+    isAuth: 'isAuth',
+    user: 'getUser'
+  })
+}
 </script>

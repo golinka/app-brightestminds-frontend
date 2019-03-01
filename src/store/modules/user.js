@@ -9,7 +9,8 @@ export default {
   },
   getters: {
     isAuth: (state) => state.isAuth,
-    getUser: (state) => state.user
+    getUser: (state) => state.user,
+    isAdmin: (state) => state.user.role === 'admin'
   },
   actions: {
     async LOGIN ({ dispatch, commit }, user) {
