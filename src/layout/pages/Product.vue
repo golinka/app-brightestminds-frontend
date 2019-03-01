@@ -1,5 +1,5 @@
 <template>
-  <div class="row">
+  <div class="row" v-if="product">
     <div class="product-page col-12 mt-4 mt-sm-0">
       <!-- TOP PRODUCT PANEL -->
       <div class="row">
@@ -15,7 +15,7 @@
               {{ date }}
             </div>
             <div class="product-page__buy">
-              <button class="btn btn-secondary btn--buy">Buy</button>
+              <button class="btn btn-secondary btn--default">Buy</button>
             </div>
           </div>
         </div>

@@ -14,7 +14,7 @@ ul {
 }
 
 .btn {
-  &--buy {
+  &--default {
     font-size: 1.1em !important;
     background-color: #73879d !important;
     border-color: #728294 !important;
@@ -24,6 +24,16 @@ ul {
       background-color: #617285 !important;
       border-color: #617285 !important;
     }
+  }
+}
+
+.form-control {
+  font-size: 1em !important;
+
+  &:focus {
+    border-color: #b0bdcc !important;
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(115, 135, 157, 0.25) !important;
+    box-shadow: 0 0 0 0.2rem rgba(115, 135, 157, 0.25) !important;
   }
 }
 

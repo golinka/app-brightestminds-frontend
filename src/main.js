@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import App from './layout/App.vue'
-import router from './router'
 import store from './store/store'
+import { router } from './router'
 
 import Icon from './layout/components/Icon'
 

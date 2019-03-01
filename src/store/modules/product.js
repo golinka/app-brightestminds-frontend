@@ -3,7 +3,7 @@ import axios from '@/config/axios'
 export default {
   state: {
     products: [],
-    product: {}
+    product: null
   },
   getters: {
     getProducts: (state) => state.products,
