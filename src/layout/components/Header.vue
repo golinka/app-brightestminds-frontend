@@ -20,13 +20,17 @@
                 <li><a href="https://brightestminds.io/case-studies/">Case studies</a></li>
                 <li><a href="https://brightestminds.io/about-us/">About us</a></li>
               </ul>
-              <!-- <app-sidebar-menu class="d-block d-md-none mt-1"></app-sidebar-menu> -->
             </div>
             <div class="header__user d-flex align-items-center justify-content-end">
               <Icon name="brain"/>
-              <span class="pl-2">
-                Vlad Goloshchuk
+              <span v-if="isAuth && user" class="pl-2">
+                {{ user.fname }} {{ user.lname }}
               </span>
+              <template v-else>
+                <router-link tag="a" to="/login" class="ml-2">
+                  Login
+                </router-link>
+              </template>
             </div>
             <div class="header__toggle ml-3">
               <Icon name="menu-icon"/>
@@ -43,5 +47,14 @@
 </template>
 
 <script>
-export default {}
+import { mapGetters } from 'vuex'
+
+export default {
+  computed: {
+    ...mapGetters({
+      isAuth: 'isAuth',
+      user: 'getUser'
+    })
+  }
+}
 </script>

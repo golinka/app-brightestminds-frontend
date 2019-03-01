@@ -18,6 +18,8 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+
 import Header from './components/Header.vue'
 import Sidebar from './components/Sidebar.vue'
 import Footer from './components/Footer.vue'
@@ -27,6 +29,12 @@ export default {
     Header,
     Sidebar,
     Footer
+  },
+  methods: mapActions({
+    getUserDetails: 'GET_USER_DETAILS'
+  }),
+  created () {
+    this.getUserDetails()
   }
 }
 </script>

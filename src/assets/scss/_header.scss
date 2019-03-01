@@ -73,13 +73,20 @@
   }
 
   &__user {
-    span {
+    a, span {
       color: #77879B;
       font-family: 'Roboto', sans-serif;
       font-weight: 700;
       font-size: .9em;
       white-space: nowrap;
       line-height: 0;
+    }
+
+    a {
+      &:hover {
+        color: rgb(146, 165, 189);
+        text-decoration: none;
+      }
     }
   }
 

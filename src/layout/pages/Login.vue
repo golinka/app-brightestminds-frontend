@@ -3,7 +3,7 @@
     <div class="row">
       <h2 class="page__title col-12">Login</h2>
     </div>
-    <div class="row">
+    <div class="row mb-5">
       <div class="col-12 col-md-8 col-lg-7">
         <!-- FORM -->
         <form @submit.prevent="login">
@@ -42,6 +42,10 @@
           >Submit</button>
         </form>
         <!-- END -->
+      </div>
+      <div class="col-12 mt-sm-5 mt-3 font-weight-light">
+        New user? You need to
+        <router-link to="/signup" class="text-secondary font-weight-bold">Sign up</router-link>
       </div>
     </div>
   </div>

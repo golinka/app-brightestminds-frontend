@@ -8,7 +8,8 @@ export default {
     user: null
   },
   getters: {
-    isAuth: (state) => state.isAuth
+    isAuth: (state) => state.isAuth,
+    getUser: (state) => state.user
   },
   actions: {
     async LOGIN ({ dispatch, commit }, user) {
