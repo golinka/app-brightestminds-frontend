@@ -22,10 +22,12 @@
               </ul>
             </div>
             <div class="header__user d-flex align-items-center justify-content-end">
-              <Icon name="brain"/>
-              <span v-if="isAuth && user" class="pl-2">
-                {{ user.fname }} {{ user.lname }}
-              </span>
+              <template v-if="isAuth && user">
+                <Icon name="brain"/>
+                <span class="pl-2">
+                  {{ user.fname }} {{ user.lname }}
+                </span>
+              </template>
               <template v-else>
                 <router-link tag="a" to="/login" class="ml-2">
                   Login

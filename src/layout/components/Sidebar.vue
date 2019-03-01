@@ -31,10 +31,10 @@
           <Icon name="profile-icon"/>
           <a>Profile</a>
         </router-link>
-        <router-link active-class="active" tag="li" to="/logout">
+        <li>
           <Icon name="logout-icon"/>
-          <a>Logout</a>
-        </router-link>
+          <a href="/logout" @click.prevent="logout">Logout</a>
+        </li>
       </ul>
     </div>
     <!-- END -->
@@ -51,13 +51,16 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
   computed: mapGetters({
     isAdmin: 'isAdmin',
     isAuth: 'isAuth',
     user: 'getUser'
+  }),
+  methods: mapActions({
+    logout: 'LOGOUT'
   })
 }
 </script>

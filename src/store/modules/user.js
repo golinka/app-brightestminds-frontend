@@ -29,6 +29,11 @@ export default {
     async GET_USER_DETAILS ({ commit }) {
       const { data: user } = await axios.get('/user')
       commit('SET_USER', user)
+    },
+    async LOGOUT ({ commit }) {
+      Cookie.remove('appbm-token')
+      commit('LOGOUT')
+      router.push('/products')
     }
   },
   mutations: {
@@ -37,6 +42,10 @@ export default {
     },
     SET_USER (state, user) {
       state.user = user
+    },
+    LOGOUT (state) {
+      state.isAuth = false
+      state.user = null
     }
   }
 }

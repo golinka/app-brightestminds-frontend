@@ -1,6 +1,7 @@
 @import '_variables';
 
 .sidebar {
+  min-height: 80%;
   border-right: 2px solid $sidebar-border;
 
   &-menu {
