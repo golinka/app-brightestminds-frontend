@@ -20,7 +20,7 @@ export default {
           Cookie.set('appbm-token', data.token)
           dispatch('GET_USER_DETAILS')
           commit('LOGIN')
-          router.push('/')
+          router.push('dashboard')
         } catch ({ response }) {
           reject(response.data.error.message.split(': ')[1])
         }
@@ -33,7 +33,7 @@ export default {
     async LOGOUT ({ commit }) {
       Cookie.remove('appbm-token')
       commit('LOGOUT')
-      router.push('/products')
+      router.push('products')
     }
   },
   mutations: {

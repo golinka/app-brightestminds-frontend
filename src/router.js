@@ -13,7 +13,7 @@ export const router = new Router({
   base: process.env.BASE_URL,
   routes: [
     {
-      path: '/',
+      path: '/dashboard',
       name: 'dashboard',
       component: Dashboard,
       meta: {
@@ -21,7 +21,7 @@ export const router = new Router({
       }
     },
     {
-      path: '/products',
+      path: '/',
       name: 'products',
       component: Products
     },
@@ -37,7 +37,7 @@ export const router = new Router({
     },
     {
       path: '*',
-      redirect: '/products'
+      redirect: '/'
     }
   ]
 })
