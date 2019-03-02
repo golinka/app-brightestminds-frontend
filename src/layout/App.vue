@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header></Header>
+    <Header/>
     <main class="content container py-sm-5 pt-2 pb-4">
       <div class="row">
         <div class="col-md-3 col-lg-2 d-none d-md-block">
@@ -13,26 +13,34 @@
         </div>
       </div>
     </main>
-    <Footer></Footer>
+    <Footer/>
+    <Loader v-show="isLoader"/>
   </div>
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 
 import Header from './components/Header.vue'
 import Sidebar from './components/Sidebar.vue'
 import Footer from './components/Footer.vue'
+import Loader from './components/Loader.vue'
 
 export default {
-  components: {
-    Header,
-    Sidebar,
-    Footer
+  computed: {
+    ...mapGetters([
+      'isLoader'
+    ])
   },
   methods: mapActions({
     getUserDetails: 'GET_USER_DETAILS'
   }),
+  components: {
+    Header,
+    Sidebar,
+    Footer,
+    Loader
+  },
   created () {
     this.getUserDetails()
   }
