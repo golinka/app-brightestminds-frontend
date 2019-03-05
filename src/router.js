@@ -21,7 +21,7 @@ export const router = new Router({
       }
     },
     {
-      path: '/',
+      path: '/products',
       name: 'products',
       component: Products
     },
@@ -37,7 +37,7 @@ export const router = new Router({
     },
     {
       path: '*',
-      redirect: '/'
+      redirect: '/products'
     }
   ]
 })
