@@ -6,7 +6,7 @@
         Menu
       </div>
       <ul class="sidebar-menu__links">
-        <router-link active-class="active" tag="li" to="products">
+        <router-link active-class="active" tag="li" :to="{ name: 'products' }" exact>
           <Icon name="products-icon"/>
           <a>Products</a>
         </router-link>
@@ -19,15 +19,15 @@
         My Account
       </div>
       <ul class="sidebar-menu__links">
-        <router-link active-class="active" tag="li" to="dashboard" exact>
+        <router-link active-class="active" tag="li" :to="{ name: 'dashboard' }" exact>
           <Icon name="dashboard-icon"/>
           <a>Dashboard</a>
         </router-link>
-        <router-link active-class="active" tag="li" to="subscriptions" exact>
+        <router-link active-class="active" tag="li" :to="{ name: 'subscriptions' }" exact>
           <Icon name="subs-icon"/>
           <a>Subscriptions</a>
         </router-link>
-        <router-link active-class="active" tag="li" to="profile" exact>
+        <router-link active-class="active" tag="li" :to="{ name: 'profile' }" exact>
           <Icon name="profile-icon"/>
           <a>Profile</a>
         </router-link>
@@ -39,7 +39,7 @@
     </div>
     <!-- END -->
     <!-- ADMIN MENU -->
-    <div class="sidebar-menu" v-if="user && isAdmin">
+    <div class="sidebar-menu" v-if="user && admin">
       <div class="sidebar-menu__title">
         Admin panel
       </div>
@@ -54,11 +54,15 @@
 import { mapGetters, mapActions } from 'vuex'
 
 export default {
-  computed: mapGetters({
-    isAdmin: 'isAdmin',
-    isAuth: 'isAuth',
-    user: 'getUser'
-  }),
+  computed: {
+    ...mapGetters({
+      isAuth: 'isAuth',
+      user: 'getUser'
+    }),
+    admin () {
+      return this.user.role === 'admin'
+    }
+  },
   methods: mapActions({
     logout: 'LOGOUT'
   })
