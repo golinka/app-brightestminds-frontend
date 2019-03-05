@@ -15,14 +15,15 @@ export default {
   actions: {
     async LOGIN ({ dispatch, commit }, user) {
       return new Promise(async (resolve, reject) => {
-        try {
-          const { data } = await axios.post('/login', { ...user })
+        const { data } = await axios.post('/login', { ...user })
+        if (data.error) {
+          reject(data.error.message)
+        } else {
           Cookie.set('appbm-token', data.token)
-          dispatch('GET_USER_DETAILS')
+          Cookie.set('appbm-refresh', data.refreshToken)
           commit('LOGIN')
-          router.push('dashboard')
-        } catch ({ response }) {
-          reject(response.data.error.message.split(': ')[1])
+          commit('SET_USER', data.user)
+          router.push('/dashboard')
         }
       })
     },
@@ -32,8 +33,9 @@ export default {
     },
     async LOGOUT ({ commit }) {
       Cookie.remove('appbm-token')
+      Cookie.remove('appbm-refresh')
+      router.push('/products')
       commit('LOGOUT')
-      router.push('products')
     }
   },
   mutations: {

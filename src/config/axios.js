@@ -19,8 +19,8 @@ axios.interceptors.response.use(response => {
   return response
 }, error => {
   Store.dispatch('DISABLE_LOADER')
-  if (error.response.status === 401) router.push('login')
-  return Promise.reject(error)
+  if (error.response.status === 401) router.push('/login')
+  return error.response
 })
 
 export default axios
