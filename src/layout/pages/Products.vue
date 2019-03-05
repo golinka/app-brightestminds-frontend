@@ -6,7 +6,7 @@
       </div>
       <div class="col-12">
         <div class="row">
-            <Product v-for="(product, index) in products" :key="index" :product="product" />
+          <Product v-for="(product, index) in products" :key="index" :product="product" />
         </div>
       </div>
     </div>
@@ -18,11 +18,9 @@ import { mapGetters } from 'vuex'
 import Product from '../components/ProductBlock'
 
 export default {
-  computed: {
-    ...mapGetters({
-      products: 'getProducts'
-    })
-  },
+  computed: mapGetters({
+    products: 'getProducts'
+  }),
   components: {
     Product
   },
