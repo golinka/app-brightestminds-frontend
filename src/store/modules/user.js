@@ -27,6 +27,21 @@ export default {
         }
       })
     },
+    async REFRESH_TOKEN ({ dispatch, commit }) {
+      const { data } = await axios.post('/refresh', {
+        refreshToken: Cookie.get('appbm-refresh')
+      })
+      if (data.error) {
+        commit('LOGOUT')
+        Cookie.remove('appbm-token')
+        Cookie.remove('appbm-refresh')
+        router.push('/login')
+      } else {
+        Cookie.set('appbm-token', data.token)
+        Cookie.set('appbm-refresh', data.refreshToken)
+        dispatch('GET_USER_DETAILS')
+      }
+    },
     async GET_USER_DETAILS ({ commit }) {
       const { data: user } = await axios.get('/user')
       commit('SET_USER', user)
