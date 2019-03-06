@@ -17,12 +17,15 @@ axios.interceptors.request.use(config => {
 axios.interceptors.response.use(response => {
   Store.dispatch('DISABLE_LOADER')
   return response
-}, error => {
+}, async (error) => {
   Store.dispatch('DISABLE_LOADER')
   if (error.response.status === 401) {
-    Cookie.get('appbm-token')
-      ? Store.dispatch('REFRESH_TOKEN')
-      : router.push('/login')
+    if (Cookie.get('appbm-token')) {
+      await Store.dispatch('REFRESH_TOKEN')
+      router.go(router.currentRoute)
+    } else {
+      router.push('/login')
+    }
   }
   return error.response
 })
