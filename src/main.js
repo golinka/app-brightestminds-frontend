@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import App from './layout/App.vue'
 import store from './store/store'
+import moment from 'vue-moment'
 import { router } from './router'
 
 import Icon from './layout/components/Icon'
@@ -11,6 +12,7 @@ import "bootstrap/scss/bootstrap.scss"
 
 Vue.config.productionTip = false
 Vue.component('Icon', Icon)
+Vue.use(moment)
 
 new Vue({
   router,
