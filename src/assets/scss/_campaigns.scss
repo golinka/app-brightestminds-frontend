@@ -119,9 +119,18 @@
   }
 }
 
-@media all and (max-width: 480px) {
+@media all and (max-width: 767px) {
   .campaign-block {
     font-size: 12px;
+
+    &__details {
+      max-width: 30vw;
+    }
+  }
+}
+
+@media all and (max-width: 480px) {
+  .campaign-block {
     table-layout: fixed;
     border: 2px solid #f3f3f3;
 
@@ -143,6 +152,8 @@
     }
 
     &__details {
+      max-width: initial;
+      
       h6, p, span {
         max-width: initial;
         text-align: right;
