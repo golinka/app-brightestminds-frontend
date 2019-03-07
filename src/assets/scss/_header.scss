@@ -188,3 +188,15 @@
     }
   }
 }
+
+@media all and (max-width: 360px) {
+  .header {
+    &__user {
+      display: block;
+      max-width: 25vw;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      line-height: 1;
+    }
+  }
+}
