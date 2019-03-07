@@ -6,7 +6,7 @@
     <div class="row mb-5">
       <div class="col-12 col-md-8 col-lg-7">
         <!-- FORM -->
-        <form @submit.prevent="login">
+        <form>
           <div class="form-group">
             <transition name="fade" mode="out-in">
               <small v-if="error" class="form-text text-danger">{{ error }}</small>
@@ -39,6 +39,7 @@
           <button
             type="submit"
             class="btn btn-secondary btn--default"
+            @click.prevent="login"
           >Submit</button>
         </form>
         <!-- END -->
