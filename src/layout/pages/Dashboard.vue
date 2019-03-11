@@ -4,7 +4,7 @@
       <div class="col-12">
         <h2 class="page__title">Dashboard</h2>
       </div>
-      <div class="col-12">
+      <div class="col-12" v-if="campaigns.length">
         <table class="campaign-block col-12">
           <thead>
             <tr class="campaign-block__head">
@@ -22,6 +22,12 @@
           </tbody>
         </table>
       </div>
+      <div class="col-12" v-else>
+        <div class="page__message d-flex align-items-center flex-column my-3">
+          <Icon name="time-icon" />
+          <p>Please wait while your manager adds statistics to your Dashboard.</p>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -38,7 +44,9 @@ export default {
     CampaignBlock
   },
   created () {
-    this.$store.dispatch('GET_CAMPAIGNS')
+    if (!this.campaigns.length) {
+      this.$store.dispatch('GET_CAMPAIGNS')
+    }
   }
 }
 </script>

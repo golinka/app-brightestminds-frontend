@@ -74,6 +74,26 @@ ul {
       margin-bottom: .7em;
     }
   }
+
+  &__message {
+    text-align: center;
+
+    svg {
+      width: 2.8em;
+      height: 2.8em;
+      display: block;
+      margin: 0 auto;
+      fill: #808080;
+    }
+
+    p {
+      width: 100%;
+      max-width: 21em;
+      margin-top: 1em;
+      font-size: .9em;
+      color: #808080;
+    }
+  }
 }
 
 @media all and (max-width: 1200px) {
