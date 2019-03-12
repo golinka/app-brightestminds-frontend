@@ -5,27 +5,32 @@ import { router } from '@/router'
 export default {
   state: {
     isAuth: !!Cookie.get('appbm-token'),
-    user: null
+    user: null,
+    loginMessage: null,
+    signupMessage: null
   },
   getters: {
     isAuth: (state) => state.isAuth,
     getUser: (state) => state.user,
-    isAdmin: (state) => state.user.role === 'admin'
+    isAdmin: (state) => state.user.role === 'admin',
+    loginMessage: (state) => state.loginMessage,
+    signupMessage: (state) => state.signupMessage
   },
   actions: {
     async LOGIN ({ dispatch, commit }, user) {
-      return new Promise(async (resolve, reject) => {
-        const { data } = await axios.post('/login', { ...user })
-        if (data.error) {
-          reject(data.error.message)
-        } else {
-          Cookie.set('appbm-token', data.token)
-          Cookie.set('appbm-refresh', data.refreshToken)
-          commit('LOGIN')
-          commit('SET_USER', data.user)
-          router.push('/dashboard')
-        }
-      })
+      const { data } = await axios.post('/login', { ...user })
+      if (data.error) {
+        dispatch('FORM_MESSAGE', {
+          name: 'login',
+          message: data.error.message
+        })
+      } else {
+        Cookie.set('appbm-token', data.token)
+        Cookie.set('appbm-refresh', data.refreshToken)
+        commit('LOGIN')
+        commit('SET_USER', data.user)
+        router.push('/dashboard')
+      }
     },
     async REFRESH_TOKEN ({ dispatch, commit }) {
       const { data } = await axios.post('/refresh', {
@@ -46,21 +51,31 @@ export default {
       const { data: user } = await axios.get('/user')
       commit('SET_USER', user)
     },
-    async SIGNUP ({ commit }, userDetails) {
-      return new Promise(async (resolve, reject) => {
-        const { data } = await axios.post('/users', { ...userDetails })
-        if (data.error) {
-          reject(data.error.message)
-        } else {
-          router.push('/login')
-        }
-      })
+    async SIGNUP ({ dispatch }, userDetails) {
+      const { data } = await axios.post('/users', { ...userDetails })
+      if (data.error) {
+        dispatch('FORM_MESSAGE', {
+          name: 'signup',
+          message: data.error.message
+        })
+      } else {
+        router.push('/login')
+      }
     },
     async LOGOUT ({ commit }) {
       Cookie.remove('appbm-token')
       Cookie.remove('appbm-refresh')
       window.location.reload()
       commit('LOGOUT')
+    },
+    FORM_MESSAGE ({ commit }, payload) {
+      commit('FORM_MESSAGE', payload)
+      setTimeout(() => {
+        commit('FORM_MESSAGE', {
+          name: payload.name,
+          message: null
+        })
+      }, 3500)
     }
   },
   mutations: {
@@ -69,6 +84,9 @@ export default {
     },
     SET_USER (state, user) {
       state.user = user
+    },
+    FORM_MESSAGE (state, { name, message }) {
+      state[`${name}Message`] = message
     },
     LOGOUT (state) {
       state.isAuth = false

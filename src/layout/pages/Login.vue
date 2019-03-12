@@ -33,13 +33,13 @@
           </div>
           <div class="form-group">
             <transition name="fade" mode="out-in">
-              <small v-if="error" class="form-text text-danger">{{ error }}</small>
+              <small v-if="loginMessage" class="form-text text-danger">{{ loginMessage }}</small>
             </transition>
           </div>
           <button
             type="submit"
             class="btn btn-secondary btn--default"
-            @click.prevent="login"
+            @click.prevent="login(user)"
           >Submit</button>
         </form>
         <!-- END -->
@@ -53,6 +53,8 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex'
+
 export default {
   data () {
     return {
@@ -63,17 +65,11 @@ export default {
       }
     }
   },
-  methods: {
-    async login () {
-      try {
-        await this.$store.dispatch('LOGIN', this.user)
-      } catch (error) {
-        this.error = error
-        setTimeout(() => {
-          this.error = null
-        }, 3500)
-      }
-    }
-  }
+  computed: mapGetters([
+    'loginMessage'
+  ]),
+  methods: mapActions({
+    login: 'LOGIN'
+  })
 }
 </script>

@@ -50,7 +50,7 @@
               placeholder="Password"
             >
           </div>
-          <div class="form-group required">
+          <div class="form-group required mt-5">
             <label>First Name</label>
             <input
               v-model="user.fname"
@@ -88,7 +88,7 @@
           </div>
           <div class="form-group">
             <transition name="fade" mode="out-in">
-              <small v-if="error" class="form-text text-danger">{{ error }}</small>
+              <small v-if="signupMessage" class="form-text text-danger">{{ signupMessage }}</small>
             </transition>
           </div>
           <button
@@ -108,6 +108,8 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex'
+
 export default {
   data () {
     return {
@@ -123,17 +125,16 @@ export default {
       confirmPassword: null
     }
   },
+  computed: mapGetters([
+    'signupMessage'
+  ]),
   methods: {
-    async signup () {
-      try {
-        if (this.user.password === this.confirmPassword) {
-          await this.$store.dispatch('SIGNUP', this.user)
-        }
-      } catch (error) {
-        this.error = error
-        setTimeout(() => {
-          this.error = null
-        }, 3500)
+    ...mapActions({
+      signupAction: 'SIGNUP'
+    }),
+    signup () {
+      if (this.user.password === this.confirmPassword) {
+        this.signupAction(this.user)
       }
     }
   }
