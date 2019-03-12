@@ -17,6 +17,23 @@
   }
 }
 
+.form-group {
+  &.required {
+    label {
+      position: relative;
+
+      &:after {
+        content: '*';
+        position: absolute;
+        top: 4px;
+        right: -10px;
+        font-size: .9em;
+        color: red;
+      }
+    }
+  }
+}
+
 @-moz-keyframes spin {
   from { -moz-transform: rotate(0deg); }
   to { -moz-transform: rotate(360deg); }

@@ -46,10 +46,20 @@ export default {
       const { data: user } = await axios.get('/user')
       commit('SET_USER', user)
     },
+    async SIGNUP ({ commit }, userDetails) {
+      return new Promise(async (resolve, reject) => {
+        const { data } = await axios.post('/users', { ...userDetails })
+        if (data.error) {
+          reject(data.error.message)
+        } else {
+          router.push('/login')
+        }
+      })
+    },
     async LOGOUT ({ commit }) {
       Cookie.remove('appbm-token')
       Cookie.remove('appbm-refresh')
-      router.push('/products')
+      window.location.reload()
       commit('LOGOUT')
     }
   },

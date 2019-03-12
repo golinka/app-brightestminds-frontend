@@ -8,11 +8,6 @@
         <!-- FORM -->
         <form>
           <div class="form-group">
-            <transition name="fade" mode="out-in">
-              <small v-if="error" class="form-text text-danger">{{ error }}</small>
-            </transition>
-          </div>
-          <div class="form-group">
             <label>Username</label>
             <input
               v-model="user.username"
@@ -33,8 +28,13 @@
               autocomplete="current-password"
             >
             <small class="form-text text-muted">
-              Your password must be 4-25 characters long
+              Your password must be 4-12 characters long
             </small>
+          </div>
+          <div class="form-group">
+            <transition name="fade" mode="out-in">
+              <small v-if="error" class="form-text text-danger">{{ error }}</small>
+            </transition>
           </div>
           <button
             type="submit"

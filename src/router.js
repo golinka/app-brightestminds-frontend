@@ -5,6 +5,7 @@ import Dashboard from './layout/pages/Dashboard'
 import Products from './layout/pages/Products'
 import Product from './layout/pages/Product'
 import Login from './layout/pages/Login'
+import Signup from './layout/pages/Signup'
 
 Vue.use(Router)
 
@@ -34,6 +35,11 @@ export const router = new Router({
       path: '/login',
       name: 'login',
       component: Login
+    },
+    {
+      path: '/signup',
+      name: 'signup',
+      component: Signup
     },
     {
       path: '*',
