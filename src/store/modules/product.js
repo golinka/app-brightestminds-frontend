@@ -10,9 +10,11 @@ export default {
     getProduct: (state) => state.product
   },
   actions: {
-    async GET_PRODUCTS ({ commit }) {
-      const { data: products } = await axios.get('/products?all=true')
-      commit('SET_PRODUCTS', products)
+    async GET_PRODUCTS ({ state, commit }) {
+      if (!state.products.length) {
+        const { data: products } = await axios.get('/products?all=true')
+        commit('SET_PRODUCTS', products)
+      }
     },
     async GET_PRODUCT ({ commit }, slug) {
       const { data } = await axios.get(`/products/${slug}`)

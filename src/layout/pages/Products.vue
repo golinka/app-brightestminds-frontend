@@ -24,7 +24,7 @@ export default {
   components: {
     Product
   },
-  mounted () {
+  created () {
     this.$store.dispatch('GET_PRODUCTS')
   }
 }
