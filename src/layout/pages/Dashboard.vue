@@ -44,9 +44,7 @@ export default {
     CampaignBlock
   },
   created () {
-    if (!this.campaigns.length) {
-      this.$store.dispatch('GET_CAMPAIGNS')
-    }
+    this.$store.dispatch('GET_CAMPAIGNS')
   }
 }
 </script>

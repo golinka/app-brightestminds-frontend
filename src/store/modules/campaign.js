@@ -10,9 +10,11 @@ export default {
     getCampaign: (state) => state.campaign
   },
   actions: {
-    async GET_CAMPAIGNS ({ commit }) {
-      const { data } = await axios.get('/campaigns')
-      commit('SET_CAMPAIGNS', data)
+    async GET_CAMPAIGNS ({ state, commit }) {
+      if (!state.campaigns.length) {
+        const { data } = await axios.get('/campaigns')
+        commit('SET_CAMPAIGNS', data)
+      }
     }
   },
   mutations: {
