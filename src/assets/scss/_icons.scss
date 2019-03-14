@@ -44,11 +44,12 @@
   }
 
   &--interested-icon,
-  &--later-icon,
-  &--notinterested-icon,
+  &--maybe_later-icon,
+  &--not_interested-icon,
   &--prospects-icon,
   &--delivered-icon,
-  &--replied-icon {
+  &--replied-icon,
+  &--not-reaction-icon {
     width: 1.5em;
     height: 1.5em;
   }

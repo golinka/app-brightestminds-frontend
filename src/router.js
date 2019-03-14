@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Cookie from 'js-cookie'
 import Dashboard from './layout/pages/Dashboard'
+import Campaign from './layout/pages/Campaign'
 import Products from './layout/pages/Products'
 import Product from './layout/pages/Product'
 import Login from './layout/pages/Login'
@@ -17,6 +18,14 @@ export const router = new Router({
       path: '/dashboard',
       name: 'dashboard',
       component: Dashboard,
+      meta: {
+        auth: true
+      }
+    },
+    {
+      path: '/campaign/:cid',
+      name: 'campaign',
+      component: Campaign,
       meta: {
         auth: true
       }

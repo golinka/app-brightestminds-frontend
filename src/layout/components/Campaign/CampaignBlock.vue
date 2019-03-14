@@ -8,7 +8,9 @@
     </td>
     <td class="campaign-block__details" data-label="Details">
       <div class="campaign-block__cell">
-        <h6>{{ campaign.name }}</h6>
+        <router-link :to="`/campaign/${campaign.id}`">
+          {{ campaign.name }}
+        </router-link>
         <p>{{ campaign.created | moment("LLL") }}</p>
         <p>{{ campaign.from_name }}</p>
         <span>({{ campaign.from_email }})</span>
@@ -45,11 +47,11 @@
           <span>{{ campaign.stats.interested }}</span>
         </div>
         <div>
-          <Icon name="later-icon" class="mb-2" />
+          <Icon name="maybe_later-icon" class="mb-2" />
           <span>{{ campaign.stats.maybe_later }}</span>
         </div>
         <div>
-          <Icon name="notinterested-icon" class="mb-2" />
+          <Icon name="not_interested-icon" class="mb-2" />
           <span>{{ campaign.stats.not_interested }}</span>
         </div>
       </div>

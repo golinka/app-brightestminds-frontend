@@ -34,6 +34,91 @@
   }
 }
 
+.VueTables {
+  font-size: 14px;
+
+  .form-inline {
+    label {
+      display: none;
+    }
+  }
+
+  &__search {
+    width: 18em;
+    max-width: 50%;
+
+    &.form-inline {
+      div, input {
+        width: 100%;
+      }
+    }
+  }
+
+  .page-item {
+    .page-link {
+      color: #1f1f1f;
+    }
+
+    &.active {
+      .page-link {
+        background-color: rgba(213, 220, 226, 0.18);
+        border-color: #dce2e6;
+        color: #1f1f1f;
+      }
+    }
+  }
+
+  > .row {
+    > .col-md-12 {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  .VuePagination {
+    &__pagination {
+      justify-content: center
+    }
+
+    nav {
+      width: 100%;
+    }
+  }
+
+  .table-striped {
+    tbody {
+      tr {
+        &:nth-of-type(odd) {
+          background-color: rgba(213, 220, 226, 0.18);
+        }
+      }
+    }
+  }
+
+  .table-bordered {
+    th {
+      border-top: none;
+      border-left: none;
+      border-right: none;
+      border-bottom: 2px solid #dee2e6;
+    }
+
+    td {
+      border-left: none;
+      border-right: none;
+      border-top: 1px solid #dee2e6;
+      border-bottom: 1px solid #dee2e6;
+    }
+  }
+
+  tr > {
+    th, td {
+      font-size: 1em;
+    }
+  }
+}
+
 @-moz-keyframes spin {
   from { -moz-transform: rotate(0deg); }
   to { -moz-transform: rotate(360deg); }

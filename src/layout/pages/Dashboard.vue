@@ -34,7 +34,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import CampaignBlock from '../components/CampaignBlock'
+import CampaignBlock from '../components/Campaign/CampaignBlock'
 
 export default {
   computed: mapGetters({
