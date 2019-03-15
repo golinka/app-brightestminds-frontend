@@ -26,6 +26,7 @@ export const router = new Router({
       path: '/campaign/:cid',
       name: 'campaign',
       component: Campaign,
+      props: true,
       meta: {
         auth: true
       }

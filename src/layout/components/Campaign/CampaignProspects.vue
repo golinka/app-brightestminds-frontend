@@ -20,7 +20,7 @@ import { mapGetters } from 'vuex'
 export default {
   props: {
     cid: {
-      type: Number,
+      type: String,
       required: true
     }
   },

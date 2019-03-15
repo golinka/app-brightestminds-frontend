@@ -15,7 +15,7 @@
           </div>
         </div>
         <CampaignCharts :stats="campaign.stats"/>
-        <CampaignProspects :cid="campaign.id"/>
+        <CampaignProspects :cid="cid"/>
       </div>
     </div>
   </div>
@@ -30,12 +30,18 @@ export default {
   computed: mapGetters({
     campaign: 'getCampaign'
   }),
+  props: {
+    cid: {
+      type: String,
+      required: true
+    }
+  },
   components: {
     CampaignCharts,
     CampaignProspects
   },
   created () {
-    this.$store.dispatch('GET_CAMPAIGN', this.$route.params.cid)
+    this.$store.dispatch('GET_CAMPAIGN', this.cid)
   }
 }
 </script>
