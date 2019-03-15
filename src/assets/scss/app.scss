@@ -37,6 +37,12 @@ ul {
     -webkit-box-shadow: 0 0 0 0.2rem rgba(115, 135, 157, 0.25) !important;
     box-shadow: 0 0 0 0.2rem rgba(115, 135, 157, 0.25) !important;
   }
+
+  &.has-error {
+    border-color: #e8657b !important;
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 135, 135, 0.25) !important;
+    box-shadow: 0 0 0 0.2rem rgba(255, 135, 135, 0.25) !important;
+  }
 }
 
 .page {

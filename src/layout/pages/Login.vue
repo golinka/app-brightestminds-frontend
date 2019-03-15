@@ -11,25 +11,31 @@
             <label>Username</label>
             <input
               v-model="user.username"
+              v-validate="'required|min:4|max:80'"
               type="text"
+              name="username"
               class="form-control"
+              :class="{ 'has-error': usernameError }"
               placeholder="Enter username"
               autocomplete="username"
             >
-            <small class="form-text text-muted">We'll never share your username with anyone else.</small>
+            <small class="form-text text-danger" v-if="usernameError">{{ usernameError }}</small>
+            <small class="form-text text-muted" v-else>We'll never share your username with anyone else</small>
           </div>
           <div class="form-group">
             <label>Password</label>
             <input
               v-model="user.password"
+              v-validate="'required|min:4|max:12'"
               type="password"
+              name="password"
               class="form-control"
+              :class="{ 'has-error': passwordError }"
               placeholder="Password"
               autocomplete="current-password"
             >
-            <small class="form-text text-muted">
-              Your password must be 4-12 characters long
-            </small>
+            <small class="form-text text-danger" v-if="passwordError">{{ passwordError }}</small>
+            <small class="form-text text-muted" v-else>Your password must be 4-12 characters long</small>
           </div>
           <div class="form-group">
             <transition name="fade" mode="out-in">
@@ -39,7 +45,8 @@
           <button
             type="submit"
             class="btn btn-secondary btn--default"
-            @click.prevent="login(user)"
+            :disabled="!!errors.all().length"
+            @click.prevent="login"
           >Submit</button>
         </form>
         <!-- END -->
@@ -53,7 +60,7 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex'
+import { mapGetters } from 'vuex'
 
 export default {
   data () {
@@ -65,11 +72,23 @@ export default {
       }
     }
   },
-  computed: mapGetters([
-    'loginMessage'
-  ]),
-  methods: mapActions({
-    login: 'LOGIN'
-  })
+  computed: {
+    ...mapGetters([
+      'loginMessage'
+    ]),
+    usernameError () {
+      return this.$validator.errors.first('username')
+    },
+    passwordError () {
+      return this.$validator.errors.first('password')
+    }
+  },
+  methods: {
+    async login () {
+      if (await this.$validator.validate()) {
+        this.$store.dispatch('LOGIN', this.user)
+      }
+    }
+  }
 }
 </script>
