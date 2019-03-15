@@ -11,7 +11,7 @@
           </div>
           <div class="product-page__date">
             <p>{{ campaign.from_email }}</p>
-            <p>{{ campaign.created }}</p>
+            <p>{{ campaign.created | moment('LLL') }}</p>
           </div>
         </div>
         <CampaignCharts :stats="campaign.stats"/>
