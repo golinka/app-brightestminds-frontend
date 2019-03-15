@@ -5,7 +5,7 @@
     </div>
     <div class="col-12 mt-3 mt-md-4">
       <v-client-table :data="tableData" :columns="columns" :options="options">
-        <template slot="interest" scope="props">
+        <template slot="interest" slot-scope="props">
           <Icon :name="`${props.row.interest ? props.row.interest.toLowerCase() : 'not-reaction'}-icon`"/>
         </template>
       </v-client-table>
