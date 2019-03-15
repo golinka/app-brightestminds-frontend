@@ -1,20 +1,20 @@
 <template>
   <div class="row" v-if="product">
-    <div class="product-page col-12 mt-4 mt-sm-0">
+    <div class="page col-12 mt-4 mt-sm-0">
       <!-- TOP PRODUCT PANEL -->
       <div class="row">
         <div class="col-12">
-          <div class="product-page__panel top">
-            <h2 class="product-page__title mb-3" :class="{ 'private' : isPrivate }">
+          <div class="page__panel top">
+            <h2 class="page__panel-title mb-3" :class="{ 'private' : isPrivate }">
               <span>{{ product.title }}</span>
             </h2>
-            <div class="product-page__price">
+            <div class="page__panel-bolder">
               {{ getPriceWithInterval }}
             </div>
-            <div class="product-page__date">
+            <div class="product-panel-smaller">
               {{ getDate }}
             </div>
-            <div class="product-page__buy">
+            <div class="page__panel-actions">
               <button class="btn btn-secondary btn--default">Buy</button>
             </div>
           </div>
@@ -24,13 +24,11 @@
       <!-- DETAILS PANEL -->
       <div class="row">
         <div class="col-12">
-          <div class="product-page__panel w-100">
-            <p class="product-page__subtitle">Description</p>
-            <p class="product-page__description">
-              <ul>
-                <li v-for="(line, index) in getDescription" :key="index">{{ line }}</li>
-              </ul>
-            </p>
+          <div class="page__panel">
+            <p class="page__panel-subtitle">Description</p>
+            <ul class="page__panel-list">
+              <li v-for="(line, index) in getDescription" :key="index">{{ line }}</li>
+            </ul>
           </div>
         </div>
       </div>

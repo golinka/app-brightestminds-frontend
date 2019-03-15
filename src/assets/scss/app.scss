@@ -94,6 +94,80 @@ ul {
       color: #808080;
     }
   }
+
+  &__panel {
+    padding: 1em 1.5em;
+    background-color: #f5f5f5;
+    border: 1px solid #f1f1f1;
+    border-radius: .5em;
+    margin-bottom: 1.5em;
+  
+    &-title {
+      position: relative;
+      font-family: 'Lato', sans-serif;
+      color: #3D4A5B;
+      font-weight: 700;
+      font-size: 2em;
+      margin-bottom: .7em;
+  
+      &.private {
+        &:before {
+          position: absolute;
+          top: -2.8em;
+          right: 0;
+          content: 'Private Product';
+          background-color: #9baabb;
+          border-radius: .35em;
+          padding: .5em .8em;
+          font-size: .3em;
+          color: white;
+          text-transform: uppercase;
+        }
+      }
+    }
+  
+    &-bolder {
+      font-size: 1.3em;
+      font-weight: 700;
+    }
+  
+    &-smaller {
+      color: #878787;
+      font-size: .9em;
+    }
+  
+    &-actions {
+      margin-top: 1.5em;
+    }
+  
+    &-subtitle {
+      font-family: 'Lato', sans-serif;
+      color: #3D4A5B;
+      font-weight: 700;
+      font-size: 1.2em;
+      margin-bottom: .7em;
+    }
+  
+    &-list {
+      font-size: .8em;
+      padding-bottom: .2em;
+      margin-bottom: .5em;
+      position: relative;
+  
+      li {
+        padding-left: 1em;
+        position: relative;
+        margin-bottom: .3em;
+  
+        &:before {
+          content: '-';
+          position: absolute;
+          left: 0;
+          top: 0;
+        }
+      }
+    }
+  }
 }
 
 @media all and (max-width: 1200px) {
