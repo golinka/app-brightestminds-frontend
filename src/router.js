@@ -10,7 +10,7 @@ import Signup from './layout/pages/Signup'
 
 Vue.use(Router)
 
-export const router = new Router({
+const router = new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
@@ -39,6 +39,7 @@ export const router = new Router({
     {
       path: '/products/:slug',
       name: 'product',
+      props: true,
       component: Product
     },
     {
@@ -53,7 +54,7 @@ export const router = new Router({
     },
     {
       path: '*',
-      redirect: '/products'
+      redirect: { name: 'products' }
     }
   ]
 })
@@ -67,3 +68,5 @@ router.beforeEach((to, from, next) => {
   }
   next()
 })
+
+export default router

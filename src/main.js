@@ -3,7 +3,7 @@ import App from './layout/App.vue'
 import store from './store/store'
 import moment from 'vue-moment'
 import VeeValidate from 'vee-validate'
-import { router } from './router'
+import router from './router'
 import { ClientTable } from 'vue-tables-2'
 
 import Icon from './layout/components/Icon'

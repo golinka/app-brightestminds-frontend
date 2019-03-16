@@ -1,7 +1,7 @@
 <template>
   <div class="products__block col-lg-4 col-md-6 col-sm-6 col-12 mb-4">
     <div class="product">
-      <router-link tag="a" class="product__head" :to="{ name: 'product', params: {slug: product.slug} }">
+      <router-link tag="a" class="product__head" :to="{ name: 'product', params: { slug: product.slug } }">
         <div class="product__title">{{ product.title }}</div>
       </router-link>
       <div class="product__body">

@@ -6,7 +6,7 @@
     <div class="col-12 mt-3 mt-md-4">
       <v-client-table :data="tableData" :columns="columns" :options="options">
         <template slot="interest" slot-scope="props">
-          <Icon :name="`${props.row.interest ? props.row.interest.toLowerCase() : 'not-reaction'}-icon`"/>
+          <Icon :name="iconName(props.row.interest)"/>
         </template>
       </v-client-table>
     </div>
@@ -49,6 +49,9 @@ export default {
           interest: prospect.interested
         }
       })
+    },
+    iconName () {
+      return (interest) => `${interest ? interest.toLowerCase() : 'not-reaction'}-icon`
     }
   },
   mounted () {

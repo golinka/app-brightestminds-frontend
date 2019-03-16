@@ -1,7 +1,7 @@
 import Axios from 'axios'
 import Cookie from 'js-cookie'
 import Store from '../store/store'
-import { router } from '@/router'
+import router from '@/router'
 
 const axios = Axios.create({
   baseURL: `${process.env.VUE_APP_BACKEND}/api/v1`
@@ -24,7 +24,7 @@ axios.interceptors.response.use(response => {
       await Store.dispatch('REFRESH_TOKEN')
       router.go(router.currentRoute)
     } else {
-      router.push('/login')
+      router.push({ name: 'login' })
     }
   }
   return error.response

@@ -11,8 +11,8 @@
             <div class="page__panel-bolder">
               {{ getPriceWithInterval }}
             </div>
-            <div class="product-panel-smaller">
-              {{ getDate }}
+            <div class="page__panel-smaller">
+              {{ product.created_at | moment('LLL') }}
             </div>
             <div class="page__panel-actions">
               <button class="btn btn-secondary btn--default">Buy</button>
@@ -43,11 +43,17 @@ import { mapGetters } from 'vuex'
 
 export default {
   mixins: [productMixin],
+  props: {
+    slug: {
+      type: String,
+      required: true
+    }
+  },
   computed: mapGetters({
     product: 'getProduct'
   }),
   created () {
-    this.$store.dispatch('GET_PRODUCT', this.$route.params.slug)
+    this.$store.dispatch('GET_PRODUCT', this.slug)
   }
 }
 </script>

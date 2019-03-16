@@ -4,11 +4,11 @@
     <main class="content container py-sm-5 pt-2 pb-4">
       <div class="row">
         <div class="col-md-3 col-lg-2 d-none d-md-block">
-          <Sidebar></Sidebar>
+          <Sidebar/>
         </div>
         <div class="col-12 col-md-9 col-lg-10">
           <transition name="fade" mode="out-in">
-            <router-view></router-view>
+            <router-view/>
           </transition>
         </div>
       </div>
@@ -27,11 +27,9 @@ import Footer from './components/Footer.vue'
 import Loader from './components/Loader.vue'
 
 export default {
-  computed: {
-    ...mapGetters([
-      'isLoader'
-    ])
-  },
+  computed: mapGetters([
+    'isLoader'
+  ]),
   methods: mapActions({
     getUserDetails: 'GET_USER_DETAILS'
   }),

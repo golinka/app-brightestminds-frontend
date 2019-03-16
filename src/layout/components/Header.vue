@@ -4,7 +4,7 @@
       <div class="row align-items-center">
         <!-- LOGO -->
         <div class="header__logo col-6 col-md-4">
-          <router-link tag="a" to="dashboard">
+          <router-link tag="a" :to="{ name: 'dashboard' }">
             <Icon name="logo"/>
             <span>App</span>
           </router-link>
@@ -30,7 +30,7 @@
                   </span>
                 </template>
                 <template v-else>
-                  <router-link tag="a" to="/login" class="ml-2">
+                  <router-link tag="a" :to="{ name: 'login' }" class="ml-2">
                     Login
                   </router-link>
                 </template>
@@ -54,11 +54,9 @@
 import { mapGetters } from 'vuex'
 
 export default {
-  computed: {
-    ...mapGetters({
-      isAuth: 'isAuth',
-      user: 'getUser'
-    })
-  }
+  computed: mapGetters({
+    isAuth: 'isAuth',
+    user: 'getUser'
+  })
 }
 </script>

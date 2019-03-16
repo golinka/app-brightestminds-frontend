@@ -101,7 +101,7 @@
       </div>
       <div class="col-12 mt-sm-5 mt-3 font-weight-light">
         Already are registered? You need to
-        <router-link to="/login" class="text-secondary font-weight-bold">Login</router-link>
+        <router-link :to="{ name: 'login' }" class="text-secondary font-weight-bold">Login</router-link>
       </div>
     </div>
   </div>

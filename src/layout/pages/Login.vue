@@ -53,7 +53,7 @@
       </div>
       <div class="col-12 mt-sm-5 mt-3 font-weight-light">
         New user? You need to
-        <router-link to="/signup" class="text-secondary font-weight-bold">Sign up</router-link>
+        <router-link :to="{ name: 'signup' }" class="text-secondary font-weight-bold">Sign up</router-link>
       </div>
     </div>
   </div>

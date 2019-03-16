@@ -8,7 +8,7 @@
     </td>
     <td class="campaign-block__details" data-label="Details">
       <div class="campaign-block__cell">
-        <router-link :to="`/campaign/${campaign.id}`">
+        <router-link :to="{ name: 'campaign', params: { cid: campaign.id } }">
           {{ campaign.name }}
         </router-link>
         <p>{{ campaign.created | moment("LLL") }}</p>

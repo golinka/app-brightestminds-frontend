@@ -1,6 +1,6 @@
 import Cookie from 'js-cookie'
 import axios from '@/config/axios'
-import { router } from '@/router'
+import router from '@/router'
 
 export default {
   state: {
@@ -18,19 +18,18 @@ export default {
   },
   actions: {
     async LOGIN ({ dispatch, commit }, user) {
-      const { data } = await axios.post('/login', { ...user })
+      const { data } = await axios.post('/login', user)
       if (data.error) {
-        dispatch('FORM_MESSAGE', {
+        return dispatch('FORM_MESSAGE', {
           name: 'login',
           message: data.error.message
         })
-      } else {
-        Cookie.set('appbm-token', data.token)
-        Cookie.set('appbm-refresh', data.refreshToken)
-        commit('LOGIN')
-        commit('SET_USER', data.user)
-        router.push('/dashboard')
       }
+      Cookie.set('appbm-token', data.token)
+      Cookie.set('appbm-refresh', data.refreshToken)
+      commit('LOGIN')
+      commit('SET_USER', data.user)
+      router.push({ name: 'dashboard' })
     },
     async REFRESH_TOKEN ({ dispatch, commit }) {
       const { data } = await axios.post('/refresh', {
@@ -40,7 +39,7 @@ export default {
         commit('LOGOUT')
         Cookie.remove('appbm-token')
         Cookie.remove('appbm-refresh')
-        router.push('/login')
+        router.push({ name: 'login' })
       } else {
         Cookie.set('appbm-token', data.token)
         Cookie.set('appbm-refresh', data.refreshToken)
@@ -52,15 +51,14 @@ export default {
       commit('SET_USER', user)
     },
     async SIGNUP ({ dispatch }, userDetails) {
-      const { data } = await axios.post('/users', { ...userDetails })
+      const { data } = await axios.post('/users', userDetails)
       if (data.error) {
-        dispatch('FORM_MESSAGE', {
+        return dispatch('FORM_MESSAGE', {
           name: 'signup',
           message: data.error.message
         })
-      } else {
-        router.push('/login')
       }
+      router.push({ name: 'login' })
     },
     async LOGOUT ({ commit }) {
       Cookie.remove('appbm-token')
