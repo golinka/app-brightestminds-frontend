@@ -4,7 +4,7 @@
       <h4>Campaign summary</h4>
     </div>
     <div class="col-12 mt-3 mt-md-4">
-      <v-client-table :data="tableData" :columns="columns" :options="options">
+      <v-client-table :data="prospects" :columns="columns" :options="options">
         <template slot="interest" slot-scope="props">
           <Icon :name="iconName(props.row.interest)"/>
         </template>
@@ -14,7 +14,6 @@
 </template>
 
 <script>
-import Vue from 'vue'
 import { mapGetters } from 'vuex'
 
 export default {
@@ -36,20 +35,6 @@ export default {
     ...mapGetters({
       prospects: 'getProspects'
     }),
-    tableData () {
-      return this.prospects.map(prospect => {
-        return {
-          when: prospect.last_contacted
-            ? Vue.moment(prospect.last_contacted).format('LLL')
-            : 'Not contacted yet',
-          email: prospect.email,
-          name: prospect.first_name,
-          emails: prospect.sent_mails,
-          status: prospect.status.toLowerCase(),
-          interest: prospect.interested
-        }
-      })
-    },
     iconName () {
       return (interest) => `${interest ? interest.toLowerCase() : 'not-reaction'}-icon`
     }

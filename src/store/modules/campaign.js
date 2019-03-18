@@ -1,3 +1,4 @@
+import Vue from 'vue'
 import axios from '@/config/axios'
 
 export default {
@@ -9,7 +10,20 @@ export default {
   getters: {
     getCampaigns: (state) => state.campaigns,
     getCampaign: (state) => state.campaign,
-    getProspects: (state) => state.prospects
+    getProspects: (state) => {
+      return state.prospects.map(prospect => {
+        return {
+          when: prospect.last_contacted
+            ? Vue.moment(prospect.last_contacted).format('LLL')
+            : 'Not contacted yet',
+          email: prospect.email,
+          name: prospect.first_name,
+          emails: prospect.sent_mails,
+          status: prospect.status.toLowerCase(),
+          interest: prospect.interested
+        }
+      })
+    }
   },
   actions: {
     async GET_CAMPAIGNS ({ state, commit }) {
