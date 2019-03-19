@@ -5,16 +5,16 @@
         <h2 class="page__title">Dashboard</h2>
       </div>
       <div class="col-12" v-if="campaigns.length">
-        <table class="campaign-block col-12">
+        <table class="table table--subscriptions col-12">
           <thead>
-            <tr class="campaign-block__head">
+            <tr class="table__head">
               <th scope="col"></th>
               <th scope="col"></th>
               <th scope="col">PROSPECTS</th>
               <th scope="col">DELIVERED</th>
               <th scope="col">OPENED</th>
               <th scope="col">REPLIED</th>
-              <th scope="col">INTEREST</th>
+              <th scope="col" class="text-center">INTEREST</th>
             </tr>
           </thead>
           <tbody>

@@ -5,6 +5,7 @@
 @import '_icons';
 @import '_products';
 @import '_campaigns';
+@import '_tables';
 @import '_utils';
 
 ul {
@@ -25,6 +26,29 @@ ul {
     &:hover {
       background-color: #617285 !important;
       border-color: #617285 !important;
+    }
+  }
+
+  &--table {
+    display: flex;
+    align-items: center;
+    border-color: #b3b9bd !important;
+    padding: .5em !important;
+
+    svg {
+      display: block;
+      width: .7em;
+      height: .7em;
+      fill: #b3b9bd;
+    }
+
+    &:hover {
+      background-color: #b3b9bd;
+      border-color: #b3b9bd;
+
+      svg {
+        fill: white;
+      }
     }
   }
 }

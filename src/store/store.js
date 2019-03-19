@@ -5,6 +5,7 @@ import general from './modules/general'
 import product from './modules/product'
 import campaign from './modules/campaign'
 import user from './modules/user'
+import subscription from './modules/subscription'
 
 Vue.use(Vuex)
 
@@ -13,6 +14,7 @@ export default new Vuex.Store({
     general,
     product,
     campaign,
-    user
+    user,
+    subscription
   }
 })
