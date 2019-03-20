@@ -4,7 +4,7 @@
       <div class="row align-items-center">
         <!-- LOGO -->
         <div class="header__logo col-6 col-md-4">
-          <router-link tag="a" :to="{ name: 'dashboard' }">
+          <router-link tag="a" :to="{ name: 'products' }">
             <Icon name="logo"/>
             <span>App</span>
           </router-link>
