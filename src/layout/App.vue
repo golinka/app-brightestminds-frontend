@@ -19,6 +19,7 @@
 </template>
 
 <script>
+import Cookie from 'js-cookie'
 import { mapActions, mapGetters } from 'vuex'
 
 import Header from './components/Header.vue'
@@ -40,7 +41,7 @@ export default {
     Loader
   },
   created () {
-    this.getUserDetails()
+    if (Cookie.get('appbm-token')) this.getUserDetails()
   }
 }
 </script>
