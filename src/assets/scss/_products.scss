@@ -137,9 +137,11 @@
 
 @media all and (max-width: 575px) {
   .products {
-    .page__title {
-      max-width: 290px;
-      margin: .7em auto;
+    .page {
+      &__title {
+        max-width: 290px;
+        margin: .5em auto;
+      }
     }
   }
 

@@ -9,8 +9,8 @@ import { ClientTable } from 'vue-tables-2'
 import Icon from './layout/components/Icon'
 
 /* eslint-disable */
-import "@/assets/scss/app.scss"
 import "bootstrap/scss/bootstrap.scss"
+import "@/assets/scss/app.scss"
 
 Vue.config.productionTip = false
 Vue.component('Icon', Icon)

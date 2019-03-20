@@ -1,21 +1,5 @@
 .table {
-  &__icon {
-    div {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-
-    span {
-      display: block;
-      text-align: center;
-      font-size: .8em;
-      margin-top: .3em;
-    }
-  }
-
-  & &__head {
+  &__head {
     th {
       font-size: .8em;
       font-weight: 600;
@@ -24,31 +8,12 @@
     }
   }
 
-  & &__row {
+  &__row {
     border-top: 2px solid #f3f3f3;
 
     td {
       height: 100%;
       padding: 1em .5em;
-    }
-  }
-
-  &__actions {
-    button {
-      display: block;
-      font-size: 1em;
-      margin: 0 .1em;
-
-      span {
-        display: none;
-        color: #6b7073;
-      }
-
-      &:hover {
-        span {
-          color: white;
-        }
-      }
     }
   }
 
@@ -65,6 +30,8 @@
       display: block;
       font-size: .6em;
       text-align: center;
+      margin-top: .6em;
+      text-transform: uppercase;
     }
   }
 
@@ -122,51 +89,63 @@
     }
   }
 
-  &__interest {
-    div > div {
-      display: inline-block;
-      margin: 0 .3em;
-
-      svg {
-        display: block;
-      }
+  &__actions {
+    button {
+      display: block;
+      font-size: 1em;
+      margin: 0 .1em;
 
       span {
-        display: block;
-        text-align: center;
-        font-size: .9em;
+        display: none;
+        color: #6b7073;
+      }
+
+      &:hover {
+        span {
+          color: white;
+        }
+      }
+    }
+  }
+
+  &__interest {
+    .cell {
+      &__item {
+        display: inline-block;
+        margin: 0 .3em;
+  
+        svg {
+          display: block;
+        }
+  
+        span {
+          display: block;
+          text-align: center;
+          font-size: .9em;
+        }
       }
     }
   }
 
   &--subscriptions {
-    tbody {
-      td {
-        font-size: .9em;
-        color: #5e5e5e;
-        border-top: 2px solid #f3f3f3;
-        vertical-align: middle;
-
-        a {
-          color: #212529;
-          font-weight: 500;
+    .table {
+      &__row {
+        td {
+          color: #5e5e5e;
+          vertical-align: middle;
         }
       }
     }
+  }
 
-    .canceled {
-      opacity: .5;
-    }
+  .canceled {
+    opacity: .5;
   }
 }
 
 @media all and (max-width: 992px) {
   .table {
     font-size: 10px;
-
-    &--subscriptions {
-      font-size: 12px;
-    }
 
     &__head {
       th {
@@ -176,6 +155,10 @@
 
     &__status {
       width: 3em;
+    }
+
+    &--subscriptions {
+      font-size: 12px;
     }
   }
 }
@@ -195,33 +178,26 @@
     table-layout: fixed;
     border: 2px solid #f3f3f3;
 
-    &__icon {
-      display: block;
+    &__row {
+      padding: .5em 0;
+
+      td {
+        display: flex;
+        padding: 1em;
+        border-top: 0;
+
+        &:before {
+          content: attr(data-label);
+          font-size: .9em;
+          float: left;
+          font-weight: bold;
+          text-transform: uppercase;
+        }
+      }
       
-      div {
-        display: inline;
+      &:nth-of-type(odd) {
+        background-color: #f9f9f9;
       }
-
-      span {
-        display: inline-block;
-        margin-left: .5em;
-      }
-    }
-
-    &__actions {
-      button {
-        svg {
-          display: none;
-        }
-
-        span {
-          display: block;
-        }
-      }
-    }
-
-    tr:nth-of-type(odd) {
-      background-color: #f9f9f9;
     }
     
     &__status {
@@ -230,11 +206,6 @@
       span {
         font-size: .8em;
       }
-    }
-
-    &__cell {
-      margin: 0 0 0 auto;
-      max-width: calc(100% - 80px);
     }
 
     &__details {
@@ -263,27 +234,28 @@
       }
     }
 
-    &__row {
-      padding: .5em 0;
-    }
+    &__actions {
+      button {
+        svg {
+          display: none;
+        }
 
-    td {
-      display: flex;
-      padding: 1em;
-      border-top: 0;
-
-      &:before {
-        content: attr(data-label);
-        font-size: .9em;
-        float: left;
-        font-weight: bold;
-        text-transform: uppercase;
+        span {
+          display: block;
+        }
       }
     }
 
+    .cell {
+      margin: 0 0 0 auto;
+      max-width: calc(100% - 80px);
+    }
+
     .canceled {
-      .table__actions {
-        display: none;
+      .table {
+        &__actions {
+          display: none;
+        }
       }
     }
   }

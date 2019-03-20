@@ -1,35 +1,36 @@
 <template>
   <tr class="table__row" :class="{ 'canceled': isCanceled }">
-    <td class="table__icon" data-label="Status">
-      <div class="table__cell">
+    <td class="table__status" data-label="Status">
+      <div class="cell py-sm-2">
         <Icon :name="iconName"/>
         <span>{{ subscription.status }}</span>
       </div>
     </td>
-    <td  class="table__details" data-label="Product">
-      <div class="table__cell">
+    <td class="table__details" data-label="Product">
+      <div class="cell">
         <router-link :to="productLink">
           {{ subscription.product.title }}
         </router-link>
       </div>
     </td>
     <td data-label="Price">
-      <div class="table__cell">
+      <div class="cell">
         {{ price }}
       </div>
     </td>
     <td data-label="Created">
-      <div class="table__cell">
+      <div class="cell">
         {{ subscription.created_at | moment('LL') }}
       </div>
     </td>
     <td class="table__actions">
-      <div v-if="!isCanceled" class="table__cell d-flex">
+      <div v-if="!isCanceled" class="cell d-flex">
         <button
           v-if="!isActive"
           @click="changeStatus('resume')"
           class="btn btn--table"
           title="Resume">
+          <span>Resume</span>
           <Icon name="play-solid-icon"/>
         </button>
         <button

@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 import Subscription from '../components/Subscription/SubscriptionBlock'
 
 export default {
@@ -39,13 +39,19 @@ export default {
       subscriptions: 'getSubscriptions'
     })
   },
-  components: {
-    Subscription
+  methods: mapActions({
+    getSubscriptions: 'GET_SUBSCRIPTIONS'
+  }),
+  created () {
+    if (this.user) this.getSubscriptions(this.user.id)
   },
   watch: {
     user () {
-      this.$store.dispatch('GET_SUBSCRIPTIONS', this.user.id)
+      this.getSubscriptions(this.user.id)
     }
+  },
+  components: {
+    Subscription
   }
 }
 </script>

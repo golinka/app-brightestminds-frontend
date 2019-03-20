@@ -207,6 +207,12 @@ ul {
 }
 
 @media all and (max-width: 575px) {
+  .page {
+    &__title {
+      margin: .5em 0;
+    }
+  }
+
   .product-page {
     &__panel.top {
       font-size: 10px;

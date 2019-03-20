@@ -1,5 +1,5 @@
 <template>
-  <div class="page mt-4 mt-sm-0">
+  <div class="page">
     <div class="row">
       <div class="col-12">
         <h2 class="page__title">Dashboard</h2>
