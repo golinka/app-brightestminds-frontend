@@ -74,12 +74,15 @@
 
   &__user {
     a, span {
+      display: block;
+      max-width: calc(100% - 1.7em);
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
       color: #77879B;
       font-family: 'Roboto', sans-serif;
       font-weight: 700;
       font-size: .9em;
-      white-space: nowrap;
-      line-height: 0;
     }
 
     a {
