@@ -29,25 +29,20 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
+import { mapGetters } from 'vuex'
 import Subscription from '../components/Subscription/SubscriptionBlock'
 
 export default {
-  computed: {
-    ...mapGetters({
-      user: 'getUser',
-      subscriptions: 'getSubscriptions'
-    })
-  },
-  methods: mapActions({
-    getSubscriptions: 'GET_SUBSCRIPTIONS'
+  computed: mapGetters({
+    user: 'getUser',
+    subscriptions: 'getSubscriptions'
   }),
   created () {
-    if (this.user) this.getSubscriptions(this.user.id)
+    if (this.user) this.$store.dispatch('GET_SUBSCRIPTIONS', this.user.id)
   },
   watch: {
     user () {
-      this.getSubscriptions(this.user.id)
+      this.$store.dispatch('GET_SUBSCRIPTIONS', this.user.id)
     }
   },
   components: {

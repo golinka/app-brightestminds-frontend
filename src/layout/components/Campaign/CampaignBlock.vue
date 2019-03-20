@@ -2,7 +2,7 @@
   <tr class="table__row">
     <td class="table__status" data-label="Status">
       <div class="cell">
-        <Icon :name="getIconName"/>
+        <Icon :name="iconName"/>
         <span>{{ campaign.status }}</span>
       </div>
     </td>
@@ -68,7 +68,7 @@ export default {
     }
   },
   computed: {
-    getIconName () {
+    iconName () {
       return this.campaign.status.toLowerCase() + '-icon'
     }
   }
