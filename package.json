@@ -17,6 +17,7 @@
     "vee-validate": "^2.2.0",
     "vue": "^2.6.6",
     "vue-chartjs": "^3.4.0",
+    "vue-flash-message": "^0.7.2",
     "vue-moment": "^4.0.0",
     "vue-router": "^3.0.1",
     "vue-swal": "^1.0.0",

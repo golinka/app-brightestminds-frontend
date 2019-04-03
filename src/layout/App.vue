@@ -15,6 +15,7 @@
     </main>
     <Footer/>
     <Loader v-show="isLoader"/>
+    <flash-message class="flash"/>
   </div>
 </template>
 

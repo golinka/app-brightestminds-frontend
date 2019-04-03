@@ -32,6 +32,15 @@
       }
     }
   }
+
+  &__label {
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+  }
+
+  &__input {
+    font-family: 'Roboto', sans-serif;
+  }
 }
 
 .VueTables {
@@ -116,6 +125,18 @@
     th, td {
       font-size: 1em;
     }
+  }
+}
+
+.flash {
+  position: fixed;
+  right: 1em;
+  top: 1em;
+  width: 20em;
+  max-width: 90%;
+
+  &__message {
+    font-size: .8em;
   }
 }
 
