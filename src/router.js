@@ -6,6 +6,7 @@ import Campaign from './layout/pages/Campaign'
 import Products from './layout/pages/Products'
 import Product from './layout/pages/Product'
 import Subscriptions from './layout/pages/Subscriptions'
+import Profile from './layout/pages/Profile'
 import Login from './layout/pages/Login'
 import Signup from './layout/pages/Signup'
 
@@ -47,6 +48,14 @@ const router = new Router({
       path: '/subscriptions',
       name: 'subscriptions',
       component: Subscriptions
+    },
+    {
+      path: '/profile',
+      name: 'profile',
+      component: Profile,
+      meta: {
+        auth: true
+      }
     },
     {
       path: '/login',

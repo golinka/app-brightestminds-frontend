@@ -6,6 +6,7 @@ export default {
   state: {
     isAuth: !!Cookie.get('appbm-token'),
     user: null,
+    services: null,
     loginMessage: null,
     signupMessage: null
   },
@@ -14,7 +15,17 @@ export default {
     getUser: (state) => state.user,
     isAdmin: (state) => state.user.role === 'admin',
     loginMessage: (state) => state.loginMessage,
-    signupMessage: (state) => state.signupMessage
+    signupMessage: (state) => state.signupMessage,
+    getUserServicesForUpdate: (state) => {
+      if (state.services) {
+        return state.services.map(service => {
+          return {
+            id: service.id,
+            token: service.pivot.token
+          }
+        })
+      }
+    }
   },
   actions: {
     async LOGIN ({ dispatch, commit }, user) {
@@ -74,14 +85,28 @@ export default {
           message: null
         })
       }, 3500)
+    },
+    async UPDATE_USER ({ state, dispatch, commit }, user) {
+      const { data } = await axios.post(`/users/${user.id}`, user)
+      if (data.error) {
+        dispatch('FLASH_MESSAGE', {
+          message: data.error.message,
+          type: 'error'
+        })
+      }
+      commit('UPDATE_USER', user)
     }
   },
   mutations: {
     LOGIN (state) {
       state.isAuth = true
     },
-    SET_USER (state, user) {
+    SET_USER (state, { services, ...user }) {
       state.user = user
+      state.services = services
+    },
+    UPDATE_USER (state, user) {
+      state.user = Object.assign({}, state.user, user)
     },
     FORM_MESSAGE (state, { name, message }) {
       state[`${name}Message`] = message
