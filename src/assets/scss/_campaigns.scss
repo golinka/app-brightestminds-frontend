@@ -10,22 +10,22 @@
   &__value {
     position: absolute;
     top: 50%;
-    transform: translate(0, -50%);
-    left: 0;
     right: 0;
+    left: 0;
     margin: 0 auto;
     font-size: 2em;
     font-weight: 600;
     color: #8b95a0;
     text-align: center;
+    transform: translate(0, -50%);
   }
 
   &__label {
-    text-align: center;
-    font-size: 1em;
-    text-transform: uppercase;
-    color: #d6dce2;
     font-family: 'Roboto', sans-serif;
+    font-size: 1em;
+    color: #d6dce2;
+    text-align: center;
+    text-transform: uppercase;
   }
 }
 

@@ -1,14 +1,14 @@
 .loader {
-  z-index: 100;
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: white;
+  z-index: 100;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: white;
 
   &__icon {
     svg {
@@ -22,13 +22,13 @@
     label {
       position: relative;
 
-      &:after {
-        content: '*';
+      &::after {
         position: absolute;
         top: 4px;
         right: -10px;
-        font-size: .9em;
+        font-size: 0.9em;
         color: red;
+        content: '*';
       }
     }
   }
@@ -57,7 +57,8 @@
     max-width: 50%;
 
     &.form-inline {
-      div, input {
+      div,
+      input {
         width: 100%;
       }
     }
@@ -70,9 +71,9 @@
 
     &.active {
       .page-link {
+        color: #1f1f1f;
         background-color: rgba(213, 220, 226, 0.18);
         border-color: #dce2e6;
-        color: #1f1f1f;
       }
     }
   }
@@ -87,7 +88,7 @@
 
   .VuePagination {
     &__pagination {
-      justify-content: center
+      justify-content: center;
     }
 
     nav {
@@ -108,21 +109,22 @@
   .table-bordered {
     th {
       border-top: none;
-      border-left: none;
       border-right: none;
       border-bottom: 2px solid #dee2e6;
+      border-left: none;
     }
 
     td {
-      border-left: none;
-      border-right: none;
       border-top: 1px solid #dee2e6;
+      border-right: none;
       border-bottom: 1px solid #dee2e6;
+      border-left: none;
     }
   }
 
   tr > {
-    th, td {
+    th,
+    td {
       font-size: 1em;
     }
   }
@@ -130,13 +132,13 @@
 
 .flash {
   position: fixed;
-  right: 1em;
   top: 1em;
+  right: 1em;
   width: 20em;
   max-width: 90%;
 
   &__message {
-    font-size: .8em;
+    font-size: 0.8em;
   }
 }
 
@@ -151,6 +153,6 @@
 }
 
 @keyframes spin {
-  from {transform:rotate(0deg);}
-  to {transform:rotate(360deg);}
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }

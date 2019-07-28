@@ -8,35 +8,35 @@
     margin-bottom: 2.5em;
 
     &__title {
+      margin-bottom: 0.7em;
       font-family: 'Lato', sans-serif;
+      font-size: 1.1em;
       font-weight: 700;
       color: black;
-      font-size: 1.1em;
-      margin-bottom: .7em;
     }
 
     &__links {
       li {
+        position: relative;
         display: flex;
         align-items: center;
-        margin-bottom: .7em;
+        margin-bottom: 0.7em;
         font-family: 'Lato', sans-serif;
-        position: relative;
         cursor: pointer;
 
         svg {
           width: 1.1em;
           height: 1.1em;
           fill: $sidebar-link;
-          transition: all .3 ease;
+          transition: all 0.3 ease;
         }
 
         a {
           display: block;
-          margin-left: .7em;
+          margin-left: 0.7em;
+          font-size: 0.9em;
           color: $sidebar-link;
-          transition: all .3 ease;
-          font-size: .9em;
+          transition: all 0.3 ease;
         }
 
         &.active,
@@ -50,13 +50,13 @@
             text-decoration: none;
           }
 
-          &:after {
-            content: '';
+          &::after {
             position: absolute;
             top: 0;
             right: -2px;
             width: 2px;
             height: 100%;
+            content: '';
             background-color: $sidebar-border-active;
           }
         }

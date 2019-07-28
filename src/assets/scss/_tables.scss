@@ -1,9 +1,9 @@
 .table {
   &__head {
     th {
-      font-size: .8em;
+      padding: 1em 0.5em;
+      font-size: 0.8em;
       font-weight: 600;
-      padding: 1em .5em;
       border-top: none;
     }
   }
@@ -13,24 +13,24 @@
 
     td {
       height: 100%;
-      padding: 1em .5em;
+      padding: 1em 0.5em;
     }
   }
 
   &__status {
     width: 5em;
-    padding: 0 .5em;
+    padding: 0 0.5em;
 
     svg {
       display: block;
       margin: 0 auto;
     }
-    
+
     span {
       display: block;
-      font-size: .6em;
+      margin-top: 0.6em;
+      font-size: 0.6em;
       text-align: center;
-      margin-top: .6em;
       text-transform: uppercase;
     }
   }
@@ -40,16 +40,16 @@
     overflow: hidden;
 
     a {
-      cursor: pointer;
       display: block;
       max-width: 25vw;
+      margin: 0 0 0.2em;
       overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-      margin: 0 0 .2em;
       font-size: 1em;
-      color: #212529;
       font-weight: 500;
+      color: #212529;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      cursor: pointer;
 
       &:hover {
         color: inherit;
@@ -57,14 +57,14 @@
     }
 
     p {
-      font-size: .9em;
-      color: #5e5e5e;
       margin: 0;
+      font-size: 0.9em;
+      color: #5e5e5e;
     }
 
     span {
       display: block;
-      font-size: .8em;
+      font-size: 0.8em;
       color: #b7b7b7;
     }
   }
@@ -78,22 +78,22 @@
 
       &.svg-icon--opened-icon {
         position: relative;
-        top: -.25em;
+        top: -0.25em;
       }
     }
 
     span {
       display: block;
+      font-size: 0.9em;
       text-align: center;
-      font-size: .9em;
     }
   }
 
   &__actions {
     button {
       display: block;
+      margin: 0 0.1em;
       font-size: 1em;
-      margin: 0 .1em;
 
       span {
         display: none;
@@ -112,16 +112,16 @@
     .cell {
       &__item {
         display: inline-block;
-        margin: 0 .3em;
-  
+        margin: 0 0.3em;
+
         svg {
           display: block;
         }
-  
+
         span {
           display: block;
+          font-size: 0.9em;
           text-align: center;
-          font-size: .9em;
         }
       }
     }
@@ -139,7 +139,7 @@
   }
 
   .canceled {
-    opacity: .5;
+    opacity: 0.5;
   }
 }
 
@@ -179,44 +179,47 @@
     border: 2px solid #f3f3f3;
 
     &__row {
-      padding: .5em 0;
+      padding: 0.5em 0;
 
       td {
         display: flex;
         padding: 1em;
         border-top: 0;
 
-        &:before {
-          content: attr(data-label);
-          font-size: .9em;
+        &::before {
           float: left;
+          font-size: 0.9em;
           font-weight: bold;
           text-transform: uppercase;
+          content: attr(data-label);
         }
       }
-      
+
       &:nth-of-type(odd) {
         background-color: #f9f9f9;
       }
     }
-    
+
     &__status {
       width: auto;
-      
+
       span {
-        font-size: .8em;
+        font-size: 0.8em;
       }
     }
 
     &__details {
       max-width: initial;
-      
-      a, p, span {
+
+      a,
+      p,
+      span {
         max-width: initial;
         text-align: right;
       }
 
-      p, span {
+      p,
+      span {
         font-size: 1em;
       }
     }
@@ -229,8 +232,8 @@
       }
 
       span {
-        margin-left: 1em;
         display: inline-block;
+        margin-left: 1em;
       }
     }
 
@@ -247,8 +250,8 @@
     }
 
     .cell {
-      margin: 0 0 0 auto;
       max-width: calc(100% - 80px);
+      margin: 0 0 0 auto;
     }
 
     .canceled {
