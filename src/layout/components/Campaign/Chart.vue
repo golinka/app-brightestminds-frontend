@@ -1,5 +1,6 @@
 <script>
 import { Pie, mixins } from 'vue-chartjs'
+import { mapState } from 'vuex'
 
 export default {
   extends: Pie,
@@ -11,11 +12,31 @@ export default {
     },
     options: {
       type: Object,
-      required: false
+      required: false,
+      default: () => ({})
     }
   },
-  mounted () {
-    this.renderChart(this.chartData, this.options)
+  data () {
+    return {
+      rendered: false
+    }
+  },
+  computed: mapState({
+    loader: state => state.general.loader
+  }),
+  watch: {
+    loader: {
+      handler (v) {
+        if (!v) this.callRender()
+      },
+      immediate: true
+    }
+  },
+  methods: {
+    callRender () {
+      this.renderChart(this.chartData, this.options)
+      this.rendered = true
+    }
   }
 }
 </script>
