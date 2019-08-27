@@ -4,8 +4,8 @@
       <b>{{ label }}</b>
     </label>
     <div class="form-group__input col-lg-9 col-md-8">
-      <slot name="input"></slot>
-      <slot name="error"></slot>
+      <slot name="input" />
+      <slot name="error" />
     </div>
   </div>
 </template>

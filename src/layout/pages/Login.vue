@@ -1,7 +1,9 @@
 <template>
   <div class="page">
     <div class="row">
-      <h2 class="page__title col-12">Login</h2>
+      <h2 class="page__title col-12">
+        Login
+      </h2>
     </div>
     <div class="row mb-5">
       <div class="col-12 col-md-8 col-lg-7">
@@ -19,8 +21,14 @@
               placeholder="Enter username"
               autocomplete="username"
             >
-            <small class="form-text text-danger" v-if="usernameError">{{ usernameError }}</small>
-            <small class="form-text text-muted" v-else>We'll never share your username with anyone else</small>
+            <small
+              v-if="usernameError"
+              class="form-text text-danger"
+            >{{ usernameError }}</small>
+            <small
+              v-else
+              class="form-text text-muted"
+            >We'll never share your username with anyone else</small>
           </div>
           <div class="form-group">
             <label>Password</label>
@@ -34,12 +42,24 @@
               placeholder="Password"
               autocomplete="current-password"
             >
-            <small class="form-text text-danger" v-if="passwordError">{{ passwordError }}</small>
-            <small class="form-text text-muted" v-else>Your password must be 4-12 characters long</small>
+            <small
+              v-if="passwordError"
+              class="form-text text-danger"
+            >{{ passwordError }}</small>
+            <small
+              v-else
+              class="form-text text-muted"
+            >Your password must be 4-12 characters long</small>
           </div>
           <div class="form-group">
-            <transition name="fade" mode="out-in">
-              <small v-if="loginMessage" class="form-text text-danger">{{ loginMessage }}</small>
+            <transition
+              name="fade"
+              mode="out-in"
+            >
+              <small
+                v-if="loginMessage"
+                class="form-text text-danger"
+              >{{ loginMessage }}</small>
             </transition>
           </div>
           <button
@@ -47,13 +67,20 @@
             class="btn btn-secondary btn--default"
             :disabled="!!errors.all().length"
             @click.prevent="login"
-          >Submit</button>
+          >
+            Submit
+          </button>
         </form>
         <!-- END -->
       </div>
       <div class="col-12 mt-sm-5 mt-3 font-weight-light">
         New user? You need to
-        <router-link :to="{ name: 'signup' }" class="text-secondary font-weight-bold">Sign up</router-link>
+        <router-link
+          :to="{ name: 'signup' }"
+          class="text-secondary font-weight-bold"
+        >
+          Sign up
+        </router-link>
       </div>
     </div>
   </div>

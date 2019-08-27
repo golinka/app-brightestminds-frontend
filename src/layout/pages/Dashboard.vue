@@ -2,27 +2,52 @@
   <div class="page">
     <div class="row">
       <div class="col-12">
-        <h2 class="page__title">Dashboard</h2>
+        <h2 class="page__title">
+          Dashboard
+        </h2>
       </div>
-      <div class="col-12" v-if="campaigns.length">
+      <div
+        v-if="campaigns.length"
+        class="col-12"
+      >
         <table class="table table--subscriptions col-12">
           <thead>
             <tr class="table__head">
-              <th scope="col"></th>
-              <th scope="col"></th>
-              <th scope="col">PROSPECTS</th>
-              <th scope="col">DELIVERED</th>
-              <th scope="col">OPENED</th>
-              <th scope="col">REPLIED</th>
-              <th scope="col" class="text-center">INTEREST</th>
+              <th scope="col" />
+              <th scope="col" />
+              <th scope="col">
+                PROSPECTS
+              </th>
+              <th scope="col">
+                DELIVERED
+              </th>
+              <th scope="col">
+                OPENED
+              </th>
+              <th scope="col">
+                REPLIED
+              </th>
+              <th
+                scope="col"
+                class="text-center"
+              >
+                INTEREST
+              </th>
             </tr>
           </thead>
           <tbody>
-            <CampaignBlock v-for="(campaign, index) in campaigns" :key="index" :campaign="campaign" />
+            <CampaignBlock
+              v-for="(campaign, index) in campaigns"
+              :key="index"
+              :campaign="campaign"
+            />
           </tbody>
         </table>
       </div>
-      <div class="col-12" v-else>
+      <div
+        v-else
+        class="col-12"
+      >
         <div class="page__message d-flex align-items-center flex-column my-3">
           <Icon name="time-icon" />
           <p>Please wait while your manager adds statistics to your Dashboard.</p>
@@ -37,12 +62,12 @@ import { mapGetters } from 'vuex'
 import CampaignBlock from '../components/Campaign/CampaignBlock'
 
 export default {
-  computed: mapGetters({
-    campaigns: 'getCampaigns'
-  }),
   components: {
     CampaignBlock
   },
+  computed: mapGetters({
+    campaigns: 'getCampaigns'
+  }),
   created () {
     this.$store.dispatch('GET_CAMPAIGNS')
   }

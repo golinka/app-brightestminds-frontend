@@ -1,10 +1,14 @@
 <template>
   <div class="row">
-    <div v-for="(chart, index) in charts" :key="index" class="col-3">
+    <div
+      v-for="(chart, index) in charts"
+      :key="index"
+      class="col-3"
+    >
       <div class="campaign-chart">
         <div class="campaign-chart__block">
           <Chart
-            :chartData="chart"
+            :chart-data="chart"
             :options="options"
           />
           <div class="campaign-chart__value">
@@ -23,6 +27,9 @@
 import Chart from './Chart'
 
 export default {
+  components: {
+    Chart
+  },
   props: {
     stats: {
       type: Object,
@@ -86,9 +93,6 @@ export default {
         }
       ]
     }
-  },
-  components: {
-    Chart
   }
 }
 </script>

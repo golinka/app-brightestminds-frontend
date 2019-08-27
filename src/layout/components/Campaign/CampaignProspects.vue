@@ -4,9 +4,16 @@
       <h4>Campaign summary</h4>
     </div>
     <div class="col-12 mt-3 mt-md-4">
-      <v-client-table :data="prospects" :columns="columns" :options="options">
-        <template slot="interest" slot-scope="props">
-          <Icon :name="iconName(props.row.interest)"/>
+      <v-client-table
+        :data="prospects"
+        :columns="columns"
+        :options="options"
+      >
+        <template
+          slot="interest"
+          slot-scope="props"
+        >
+          <Icon :name="iconName(props.row.interest)" />
         </template>
       </v-client-table>
     </div>

@@ -1,7 +1,9 @@
 <template>
   <div class="page">
     <div class="row">
-      <h2 class="page__title col-12">Registration</h2>
+      <h2 class="page__title col-12">
+        Registration
+      </h2>
     </div>
     <div class="row mb-5">
       <div class="col-12 col-md-8 col-lg-7">
@@ -19,7 +21,10 @@
               placeholder="Email"
               autocomplete="email"
             >
-            <small v-if="validationError('email')" class="form-text text-danger">
+            <small
+              v-if="validationError('email')"
+              class="form-text text-danger"
+            >
               {{ validationError('email') }}
             </small>
           </div>
@@ -35,30 +40,42 @@
               placeholder="Enter username"
               autocomplete="username"
             >
-            <small v-if="validationError('username')" class="form-text text-danger">
+            <small
+              v-if="validationError('username')"
+              class="form-text text-danger"
+            >
               {{ validationError('username') }}
             </small>
-            <small class="form-text text-muted" v-else>
+            <small
+              v-else
+              class="form-text text-muted"
+            >
               We'll never share your username with anyone else.
             </small>
           </div>
           <div class="form-group required">
             <label>Password</label>
             <input
+              ref="password"
               v-model="user.password"
               v-validate="'required|min:4|max:12'"
               type="password"
               name="password"
-              ref="password"
               class="form-control"
               :class="{ 'has-error': validationError('password') }"
               placeholder="Password"
               autocomplete="current-password"
             >
-            <small v-if="validationError('password')" class="form-text text-danger">
+            <small
+              v-if="validationError('password')"
+              class="form-text text-danger"
+            >
               {{ validationError('password') }}
             </small>
-            <small class="form-text text-muted" v-else>
+            <small
+              v-else
+              class="form-text text-muted"
+            >
               Your password must be 4-12 characters long
             </small>
           </div>
@@ -74,7 +91,10 @@
               :class="{ 'has-error': validationError('confirmPassword') }"
               placeholder="Password again"
             >
-            <small v-if="validationError('confirmPassword')" class="form-text text-danger">
+            <small
+              v-if="validationError('confirmPassword')"
+              class="form-text text-danger"
+            >
               {{ validationError('confirmPassword') }}
             </small>
           </div>
@@ -89,7 +109,10 @@
               :class="{ 'has-error': validationError('fname') }"
               placeholder="Your name"
             >
-            <small v-if="validationError('fname')" class="form-text text-danger">
+            <small
+              v-if="validationError('fname')"
+              class="form-text text-danger"
+            >
               {{ validationError('fname') }}
             </small>
           </div>
@@ -104,7 +127,10 @@
               :class="{ 'has-error': validationError('lname') }"
               placeholder="Last name"
             >
-            <small v-if="validationError('lname')" class="form-text text-danger">
+            <small
+              v-if="validationError('lname')"
+              class="form-text text-danger"
+            >
               {{ validationError('lname') }}
             </small>
           </div>
@@ -119,7 +145,10 @@
               :class="{ 'has-error': validationError('phone') }"
               placeholder="Phone number"
             >
-            <small v-if="validationError('phone')" class="form-text text-danger">
+            <small
+              v-if="validationError('phone')"
+              class="form-text text-danger"
+            >
               {{ validationError('phone') }}
             </small>
           </div>
@@ -134,13 +163,22 @@
               :class="{ 'has-error': validationError('company') }"
               placeholder="Company"
             >
-            <small v-if="validationError('company')" class="form-text text-danger">
+            <small
+              v-if="validationError('company')"
+              class="form-text text-danger"
+            >
               {{ validationError('company') }}
             </small>
           </div>
           <div class="form-group">
-            <transition name="fade" mode="out-in">
-              <small v-if="signupMessage" class="form-text text-danger">{{ signupMessage }}</small>
+            <transition
+              name="fade"
+              mode="out-in"
+            >
+              <small
+                v-if="signupMessage"
+                class="form-text text-danger"
+              >{{ signupMessage }}</small>
             </transition>
           </div>
           <button
@@ -148,13 +186,20 @@
             class="btn btn-secondary btn--default"
             :disabled="!!errors.all().length"
             @click.prevent="signup"
-          >Submit</button>
+          >
+            Submit
+          </button>
         </form>
         <!-- END -->
       </div>
       <div class="col-12 mt-sm-5 mt-3 font-weight-light">
         Already are registered? You need to
-        <router-link :to="{ name: 'login' }" class="text-secondary font-weight-bold">Login</router-link>
+        <router-link
+          :to="{ name: 'login' }"
+          class="text-secondary font-weight-bold"
+        >
+          Login
+        </router-link>
       </div>
     </div>
   </div>

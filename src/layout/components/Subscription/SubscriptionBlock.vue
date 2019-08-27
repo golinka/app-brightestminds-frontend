@@ -1,12 +1,21 @@
 <template>
-  <tr class="table__row" :class="{ 'canceled': isCanceled }">
-    <td class="table__status" data-label="Status">
+  <tr
+    class="table__row"
+    :class="{ 'canceled': isCanceled }"
+  >
+    <td
+      class="table__status"
+      data-label="Status"
+    >
       <div class="cell py-sm-2">
-        <Icon :name="iconName"/>
+        <Icon :name="iconName" />
         <span>{{ subscription.status }}</span>
       </div>
     </td>
-    <td class="table__details" data-label="Product">
+    <td
+      class="table__details"
+      data-label="Product"
+    >
       <div class="cell">
         <router-link :to="productLink">
           {{ subscription.product.title }}
@@ -24,30 +33,36 @@
       </div>
     </td>
     <td class="table__actions">
-      <div v-if="!isCanceled" class="cell d-flex">
+      <div
+        v-if="!isCanceled"
+        class="cell d-flex"
+      >
         <button
           v-if="!isActive"
+          class="btn btn--table"
+          title="Resume"
           @click="changeStatus('resume')"
-          class="btn btn--table"
-          title="Resume">
+        >
           <span>Resume</span>
-          <Icon name="play-solid-icon"/>
+          <Icon name="play-solid-icon" />
         </button>
         <button
+          v-if="isActive"
+          class="btn btn--table"
+          title="Pause"
           @click="changeStatus('pause')"
-          v-if="isActive"
-          class="btn btn--table"
-          title="Pause">
+        >
           <span>Pause</span>
-          <Icon name="pause-solid-icon"/>
+          <Icon name="pause-solid-icon" />
         </button>
         <button
           v-if="isActive"
-          @click="cancelSubscription"
           class="btn btn--table"
-          title="Stop">
+          title="Stop"
+          @click="cancelSubscription"
+        >
           <span>Stop</span>
-          <Icon name="stop-solid-icon"/>
+          <Icon name="stop-solid-icon" />
         </button>
       </div>
     </td>

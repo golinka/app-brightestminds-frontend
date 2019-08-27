@@ -2,25 +2,35 @@
   <div class="page">
     <div class="row">
       <div class="col-12">
-        <h2 class="page__title">Profile</h2>
+        <h2 class="page__title">
+          Profile
+        </h2>
       </div>
-      <div class="col-12" v-if="user">
+      <div
+        v-if="user"
+        class="col-12"
+      >
         <div class="row">
           <div class="col-sm-9 col-12">
             <InputLabel
               v-for="(input, index) in inputs"
               :key="index"
-              :label="input.label">
+              :label="input.label"
+            >
               <template v-slot:input>
                 <input
-                  v-validate="input.rules"
                   v-model="profile[input.name]"
+                  v-validate="input.rules"
                   :class="[inputClass, {'has-error' : validationError(input.name)}]"
                   :name="input.name"
-                  type="text">
+                  type="text"
+                >
               </template>
               <template v-slot:error>
-                <small v-if="validationError(input.name)" class="form-text text-danger">
+                <small
+                  v-if="validationError(input.name)"
+                  class="form-text text-danger"
+                >
                   {{ validationError(input.name) }}
                 </small>
               </template>
@@ -29,7 +39,13 @@
         </div>
         <div class="row mt-3">
           <div class="col-12">
-            <button @click="toggleEditing" :class="buttonClass" class="btn">{{ buttonText }}</button>
+            <button
+              :class="buttonClass"
+              class="btn"
+              @click="toggleEditing"
+            >
+              {{ buttonText }}
+            </button>
           </div>
         </div>
       </div>
@@ -42,6 +58,9 @@ import { mapGetters } from 'vuex'
 import InputLabel from '../components/InputLabel'
 
 export default {
+  components: {
+    InputLabel
+  },
   data () {
     return {
       readOnly: true,
@@ -80,9 +99,6 @@ export default {
       this.readOnly = !this.readOnly
       if (this.readOnly) this.$store.dispatch('UPDATE_USER', this.profile)
     }
-  },
-  components: {
-    InputLabel
   }
 }
 </script>

@@ -1,9 +1,7 @@
 <template>
   <div>
     <Header />
-    <main 
-      :class="['content container py-sm-5 pt-2 pb-4', componentClasses]"
-    >
+    <main :class="['content container py-sm-5 pt-2 pb-4', componentClasses]">
       <div class="row">
         <div class="col-md-3 col-lg-2 d-none d-md-block">
           <Sidebar />

@@ -6,45 +6,73 @@
         Menu
       </div>
       <ul class="sidebar-menu__links">
-        <router-link active-class="active" tag="li" :to="{ name: 'products' }" exact>
-          <Icon name="products-icon"/>
+        <router-link
+          active-class="active"
+          tag="li"
+          :to="{ name: 'products' }"
+          exact
+        >
+          <Icon name="products-icon" />
           <a>Products</a>
         </router-link>
       </ul>
     </div>
     <!-- END -->
     <!-- DASHBOARD MENU -->
-    <div class="sidebar-menu" v-if="isAuth">
+    <div
+      v-if="isAuth"
+      class="sidebar-menu"
+    >
       <div class="sidebar-menu__title">
         My Account
       </div>
       <ul class="sidebar-menu__links">
-        <router-link active-class="active" tag="li" :to="{ name: 'dashboard' }" exact>
-          <Icon name="dashboard-icon"/>
+        <router-link
+          active-class="active"
+          tag="li"
+          :to="{ name: 'dashboard' }"
+          exact
+        >
+          <Icon name="dashboard-icon" />
           <a>Dashboard</a>
         </router-link>
-        <router-link active-class="active" tag="li" :to="{ name: 'subscriptions' }" exact>
-          <Icon name="subs-icon"/>
+        <router-link
+          active-class="active"
+          tag="li"
+          :to="{ name: 'subscriptions' }"
+          exact
+        >
+          <Icon name="subs-icon" />
           <a>Subscriptions</a>
         </router-link>
-        <router-link active-class="active" tag="li" :to="{ name: 'profile' }" exact>
-          <Icon name="profile-icon"/>
+        <router-link
+          active-class="active"
+          tag="li"
+          :to="{ name: 'profile' }"
+          exact
+        >
+          <Icon name="profile-icon" />
           <a>Profile</a>
         </router-link>
         <li>
-          <Icon name="logout-icon"/>
-          <a href="/logout" @click.prevent="logout">Logout</a>
+          <Icon name="logout-icon" />
+          <a
+            href="/logout"
+            @click.prevent="logout"
+          >Logout</a>
         </li>
       </ul>
     </div>
     <!-- END -->
     <!-- ADMIN MENU -->
-    <div class="sidebar-menu" v-if="user && admin">
+    <div
+      v-if="user && admin"
+      class="sidebar-menu"
+    >
       <div class="sidebar-menu__title">
         Admin panel
       </div>
-      <ul class="sidebar-menu__links">
-      </ul>
+      <ul class="sidebar-menu__links" />
     </div>
     <!-- END -->
   </div>

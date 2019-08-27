@@ -4,14 +4,20 @@
       <div class="row align-items-center">
         <!-- LOGO -->
         <div class="header__logo col-6 col-md-4">
-          <router-link tag="a" :to="{ name: 'products' }">
-            <Icon name="logo"/>
+          <router-link
+            tag="a"
+            :to="{ name: 'products' }"
+          >
+            <Icon name="logo" />
             <span>App</span>
           </router-link>
         </div>
         <!-- LOGO END -->
         <!-- NAVIGATION -->
-        <div class="header__navigation col-6 col-md-8" role="navigation">
+        <div
+          class="header__navigation col-6 col-md-8"
+          role="navigation"
+        >
           <div class="row">
             <div class="col-12 d-flex align-items-center justify-content-end">
               <div class="header__menu d-none d-md-flex flex-grow-1">
@@ -24,21 +30,25 @@
               </div>
               <div class="header__user d-flex align-items-center justify-content-end">
                 <template v-if="isAuth && user">
-                  <Icon name="brain"/>
+                  <Icon name="brain" />
                   <span class="pl-2">
                     {{ user.fname }} {{ user.lname }}
                   </span>
                 </template>
                 <template v-else>
-                  <router-link tag="a" :to="{ name: 'login' }" class="ml-2">
+                  <router-link
+                    tag="a"
+                    :to="{ name: 'login' }"
+                    class="ml-2"
+                  >
                     Login
                   </router-link>
                 </template>
               </div>
               <div class="header__toggle ml-3">
-                <Icon name="menu-icon"/>
+                <Icon name="menu-icon" />
                 <span>
-                  <Icon name="close-icon"/>
+                  <Icon name="close-icon" />
                 </span>
               </div>
             </div>
