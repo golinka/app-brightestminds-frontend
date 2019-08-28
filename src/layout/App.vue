@@ -17,14 +17,14 @@
       </div>
     </main>
     <Footer />
-    <Loader v-show="loader" />
+    <Loader />
     <flash-message class="flash" />
   </div>
 </template>
 
 <script>
   import Cookie from 'js-cookie'
-  import { mapState, mapActions } from 'vuex'
+  import { mapActions } from 'vuex'
 
   import Header from './components/Header.vue'
   import Sidebar from './components/Sidebar.vue'
@@ -39,9 +39,6 @@
       Loader
     },
     computed: {
-      ...mapState({
-        loader: state => state.general.loader
-      }),
       componentClasses () {
         return { overflow: this.loader }
       }
@@ -54,19 +51,3 @@
     })
   }
 </script>
-
-<style>
-  .fade-enter-active,
-  .fade-leave-active {
-    transition: opacity 0.5s;
-  }
-
-  .fade-enter,
-  .fade-leave-to {
-    opacity: 0;
-  }
-
-  .overflow {
-    overflow: hidden;
-  }
-</style>
