@@ -102,17 +102,17 @@
 </template>
 
 <script>
-export default {
-  props: {
-    campaign: {
-      type: Object,
-      required: true
-    }
-  },
-  computed: {
-    iconName () {
-      return this.campaign.status.toLowerCase() + '-icon'
+  export default {
+    props: {
+      campaign: {
+        type: Object,
+        required: true
+      }
+    },
+    computed: {
+      iconName () {
+        return this.campaign.status.toLowerCase() + '-icon'
+      }
     }
   }
-}
 </script>

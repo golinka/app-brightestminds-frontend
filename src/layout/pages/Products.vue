@@ -20,18 +20,18 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
-import Product from '../components/ProductBlock'
+  import { mapGetters } from 'vuex'
+  import Product from '../components/ProductBlock'
 
-export default {
-  components: {
-    Product
-  },
-  computed: mapGetters({
-    products: 'getProducts'
-  }),
-  created () {
-    this.$store.dispatch('GET_PRODUCTS')
+  export default {
+    components: {
+      Product
+    },
+    computed: mapGetters({
+      products: 'getProducts'
+    }),
+    created () {
+      this.$store.dispatch('GET_PRODUCTS')
+    }
   }
-}
 </script>

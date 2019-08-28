@@ -54,51 +54,51 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
-import InputLabel from '../components/InputLabel'
+  import { mapGetters } from 'vuex'
+  import InputLabel from '../components/InputLabel'
 
-export default {
-  components: {
-    InputLabel
-  },
-  data () {
-    return {
-      readOnly: true,
-      inputs: [
-        { name: 'username', rules: 'required|min:4|max:80', label: 'Username' },
-        { name: 'email', rules: 'required|email|max:255', label: 'Email' },
-        { name: 'fname', rules: 'required|alpha|min:2|max:35', label: 'First name' },
-        { name: 'lname', rules: 'alpha|min:2|max:45', label: 'Last name' },
-        { name: 'phone', rules: 'min:2|max:45', label: 'Phone number' },
-        { name: 'company', rules: 'max:150', label: 'Company' }
-      ]
-    }
-  },
-  computed: {
-    ...mapGetters({
-      user: 'getUser'
-    }),
-    profile () {
-      return this.user ? { ...this.user } : null
+  export default {
+    components: {
+      InputLabel
     },
-    buttonClass () {
-      return this.readOnly ? 'btn-secondary' : 'btn-dark'
+    data () {
+      return {
+        readOnly: true,
+        inputs: [
+          { name: 'username', rules: 'required|min:4|max:80', label: 'Username' },
+          { name: 'email', rules: 'required|email|max:255', label: 'Email' },
+          { name: 'fname', rules: 'required|alpha|min:2|max:35', label: 'First name' },
+          { name: 'lname', rules: 'alpha|min:2|max:45', label: 'Last name' },
+          { name: 'phone', rules: 'min:2|max:45', label: 'Phone number' },
+          { name: 'company', rules: 'max:150', label: 'Company' }
+        ]
+      }
     },
-    buttonText () {
-      return this.readOnly ? 'Edit profile' : 'Save'
+    computed: {
+      ...mapGetters({
+        user: 'getUser'
+      }),
+      profile () {
+        return this.user ? { ...this.user } : null
+      },
+      buttonClass () {
+        return this.readOnly ? 'btn-secondary' : 'btn-dark'
+      },
+      buttonText () {
+        return this.readOnly ? 'Edit profile' : 'Save'
+      },
+      inputClass () {
+        return this.readOnly ? 'form-control-plaintext' : 'form-control'
+      },
+      validationError () {
+        return (field) => this.$validator.errors.first(field)
+      }
     },
-    inputClass () {
-      return this.readOnly ? 'form-control-plaintext' : 'form-control'
-    },
-    validationError () {
-      return (field) => this.$validator.errors.first(field)
-    }
-  },
-  methods: {
-    toggleEditing () {
-      this.readOnly = !this.readOnly
-      if (this.readOnly) this.$store.dispatch('UPDATE_USER', this.profile)
+    methods: {
+      toggleEditing () {
+        this.readOnly = !this.readOnly
+        if (this.readOnly) this.$store.dispatch('UPDATE_USER', this.profile)
+      }
     }
   }
-}
 </script>

@@ -28,26 +28,26 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
-import CampaignCharts from '../components/Campaign/CampaignCharts'
-import CampaignProspects from '../components/Campaign/CampaignProspects'
+  import { mapGetters } from 'vuex'
+  import CampaignCharts from '../components/Campaign/CampaignCharts'
+  import CampaignProspects from '../components/Campaign/CampaignProspects'
 
-export default {
-  components: {
-    CampaignCharts,
-    CampaignProspects
-  },
-  props: {
-    cid: {
-      type: String,
-      required: true
+  export default {
+    components: {
+      CampaignCharts,
+      CampaignProspects
+    },
+    props: {
+      cid: {
+        type: String,
+        required: true
+      }
+    },
+    computed: mapGetters({
+      campaign: 'getCampaign'
+    }),
+    created () {
+      this.$store.dispatch('GET_CAMPAIGN', this.cid)
     }
-  },
-  computed: mapGetters({
-    campaign: 'getCampaign'
-  }),
-  created () {
-    this.$store.dispatch('GET_CAMPAIGN', this.cid)
   }
-}
 </script>

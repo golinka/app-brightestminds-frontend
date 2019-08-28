@@ -70,63 +70,63 @@
 </template>
 
 <script>
-export default {
-  props: {
-    id: {
-      type: Number,
-      required: true
-    },
-    subscription: {
-      type: Object,
-      required: true
-    }
-  },
-  computed: {
-    isActive () {
-      return this.subscription.status === 'active'
-    },
-    isCanceled () {
-      return this.subscription.status === 'canceled'
-    },
-    currency () {
-      return this.subscription.product.currency === 'eur' ? '€' : '$'
-    },
-    price () {
-      return `${this.currency + this.subscription.product.price}/${this.subscription.product.interval}`
-    },
-    productLink () {
-      return {
-        name: 'product',
-        params: {
-          slug: this.subscription.product.slug
-        }
+  export default {
+    props: {
+      id: {
+        type: Number,
+        required: true
+      },
+      subscription: {
+        type: Object,
+        required: true
       }
     },
-    iconName () {
-      switch (this.subscription.status) {
+    computed: {
+      isActive () {
+        return this.subscription.status === 'active'
+      },
+      isCanceled () {
+        return this.subscription.status === 'canceled'
+      },
+      currency () {
+        return this.subscription.product.currency === 'eur' ? '€' : '$'
+      },
+      price () {
+        return `${this.currency + this.subscription.product.price}/${this.subscription.product.interval}`
+      },
+      productLink () {
+        return {
+          name: 'product',
+          params: {
+            slug: this.subscription.product.slug
+          }
+        }
+      },
+      iconName () {
+        switch (this.subscription.status) {
         case 'active':
           return 'running-icon'
         case 'paused':
           return 'paused-icon'
         default:
           return 'stopped-icon'
-      }
-    }
-  },
-  methods: {
-    getPayload (type) {
-      return {
-        type,
-        id: this.id,
-        sid: this.subscription.id
+        }
       }
     },
-    changeStatus (type) {
-      this.$store.dispatch('CHANGE_STATUS_SUBSCRIPTION', this.getPayload(type))
-    },
-    cancelSubscription () {
-      this.$store.dispatch('CANCEL_SUBSCRIPTION', this.getPayload(null))
+    methods: {
+      getPayload (type) {
+        return {
+          type,
+          id: this.id,
+          sid: this.subscription.id
+        }
+      },
+      changeStatus (type) {
+        this.$store.dispatch('CHANGE_STATUS_SUBSCRIPTION', this.getPayload(type))
+      },
+      cancelSubscription () {
+        this.$store.dispatch('CANCEL_SUBSCRIPTION', this.getPayload(null))
+      }
     }
   }
-}
 </script>

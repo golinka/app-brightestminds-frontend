@@ -46,24 +46,24 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
-import Subscription from '../components/Subscription/SubscriptionBlock'
+  import { mapGetters } from 'vuex'
+  import Subscription from '../components/Subscription/SubscriptionBlock'
 
-export default {
-  components: {
-    Subscription
-  },
-  computed: mapGetters({
-    user: 'getUser',
-    subscriptions: 'getSubscriptions'
-  }),
-  watch: {
-    user () {
-      this.$store.dispatch('GET_SUBSCRIPTIONS', this.user.id)
+  export default {
+    components: {
+      Subscription
+    },
+    computed: mapGetters({
+      user: 'getUser',
+      subscriptions: 'getSubscriptions'
+    }),
+    watch: {
+      user () {
+        this.$store.dispatch('GET_SUBSCRIPTIONS', this.user.id)
+      }
+    },
+    created () {
+      if (this.user) this.$store.dispatch('GET_SUBSCRIPTIONS', this.user.id)
     }
-  },
-  created () {
-    if (this.user) this.$store.dispatch('GET_SUBSCRIPTIONS', this.user.id)
   }
-}
 </script>

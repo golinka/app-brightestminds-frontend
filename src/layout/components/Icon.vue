@@ -12,25 +12,25 @@
 </template>
 
 <script>
-export default {
-  name: 'Icon',
-  props: {
-    name: {
-      type: String,
-      required: true
+  export default {
+    name: 'Icon',
+    props: {
+      name: {
+        type: String,
+        required: true
+      },
+      title: {
+        type: String,
+        default: null
+      }
     },
-    title: {
-      type: String,
-      default: null
-    }
-  },
-  computed: {
-    iconPath () {
-      return require(`../../assets/sprite/${this.name}.svg`).default.url
-    },
-    className () {
-      return 'svg-icon svg-icon--' + this.name
+    computed: {
+      iconPath () {
+        return require(`../../assets/sprite/${this.name}.svg`).default.url
+      },
+      className () {
+        return 'svg-icon svg-icon--' + this.name
+      }
     }
   }
-}
 </script>

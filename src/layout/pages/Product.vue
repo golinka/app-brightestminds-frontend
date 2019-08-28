@@ -53,22 +53,22 @@
 </template>
 
 <script>
-import { productMixin } from '@/mixins'
-import { mapGetters } from 'vuex'
+  import { productMixin } from '@/mixins'
+  import { mapGetters } from 'vuex'
 
-export default {
-  mixins: [productMixin],
-  props: {
-    slug: {
-      type: String,
-      required: true
+  export default {
+    mixins: [productMixin],
+    props: {
+      slug: {
+        type: String,
+        required: true
+      }
+    },
+    computed: mapGetters({
+      product: 'getProduct'
+    }),
+    created () {
+      this.$store.dispatch('GET_PRODUCT', this.slug)
     }
-  },
-  computed: mapGetters({
-    product: 'getProduct'
-  }),
-  created () {
-    this.$store.dispatch('GET_PRODUCT', this.slug)
   }
-}
 </script>

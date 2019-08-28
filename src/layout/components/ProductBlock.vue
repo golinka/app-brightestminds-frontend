@@ -39,15 +39,15 @@
 </template>
 
 <script>
-import { productMixin } from '@/mixins'
+  import { productMixin } from '@/mixins'
 
-export default {
-  mixins: [productMixin],
-  props: {
-    product: {
-      type: Object,
-      required: true
+  export default {
+    mixins: [productMixin],
+    props: {
+      product: {
+        type: Object,
+        required: true
+      }
     }
   }
-}
 </script>

@@ -23,36 +23,36 @@
 </template>
 
 <script>
-import Cookie from 'js-cookie'
-import { mapState, mapActions } from 'vuex'
+  import Cookie from 'js-cookie'
+  import { mapState, mapActions } from 'vuex'
 
-import Header from './components/Header.vue'
-import Sidebar from './components/Sidebar.vue'
-import Footer from './components/Footer.vue'
-import Loader from './components/Loader.vue'
+  import Header from './components/Header.vue'
+  import Sidebar from './components/Sidebar.vue'
+  import Footer from './components/Footer.vue'
+  import Loader from './components/Loader.vue'
 
-export default {
-  components: {
-    Header,
-    Sidebar,
-    Footer,
-    Loader
-  },
-  computed: {
-    ...mapState({
-      loader: state => state.general.loader
-    }),
-    componentClasses () {
-      return { overflow: this.loader }
-    }
-  },
-  created () {
-    if (Cookie.get('appbm-token')) this.getUserDetails()
-  },
-  methods: mapActions({
-    getUserDetails: 'GET_USER_DETAILS'
-  })
-}
+  export default {
+    components: {
+      Header,
+      Sidebar,
+      Footer,
+      Loader
+    },
+    computed: {
+      ...mapState({
+        loader: state => state.general.loader
+      }),
+      componentClasses () {
+        return { overflow: this.loader }
+      }
+    },
+    created () {
+      if (Cookie.get('appbm-token')) this.getUserDetails()
+    },
+    methods: mapActions({
+      getUserDetails: 'GET_USER_DETAILS'
+    })
+  }
 </script>
 
 <style>

@@ -58,18 +58,18 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
-import CampaignBlock from '../components/Campaign/CampaignBlock'
+  import { mapGetters } from 'vuex'
+  import CampaignBlock from '../components/Campaign/CampaignBlock'
 
-export default {
-  components: {
-    CampaignBlock
-  },
-  computed: mapGetters({
-    campaigns: 'getCampaigns'
-  }),
-  created () {
-    this.$store.dispatch('GET_CAMPAIGNS')
+  export default {
+    components: {
+      CampaignBlock
+    },
+    computed: mapGetters({
+      campaigns: 'getCampaigns'
+    }),
+    created () {
+      this.$store.dispatch('GET_CAMPAIGNS')
+    }
   }
-}
 </script>

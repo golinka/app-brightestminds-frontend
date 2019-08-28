@@ -206,40 +206,40 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex'
+  import { mapActions, mapGetters } from 'vuex'
 
-export default {
-  data () {
-    return {
-      error: null,
-      user: {
-        username: null,
-        password: null,
-        fname: null,
-        lname: null,
-        phone: null,
-        company: null
-      },
-      confirmPassword: null
-    }
-  },
-  computed: {
-    ...mapGetters([
-      'signupMessage'
-    ]),
-    validationError () {
-      return (field) => this.$validator.errors.first(field)
-    }
-  },
-  methods: {
-    ...mapActions({
-      signupAction: 'SIGNUP'
-    }),
-    signup () {
-      if (this.user.password === this.confirmPassword) {
-        this.signupAction(this.user)
+  export default {
+    data () {
+      return {
+        error: null,
+        user: {
+          username: null,
+          password: null,
+          fname: null,
+          lname: null,
+          phone: null,
+          company: null
+        },
+        confirmPassword: null
+      }
+    },
+    computed: {
+      ...mapGetters([
+        'signupMessage'
+      ]),
+      validationError () {
+        return (field) => this.$validator.errors.first(field)
+      }
+    },
+    methods: {
+      ...mapActions({
+        signupAction: 'SIGNUP'
+      }),
+      signup () {
+        if (this.user.password === this.confirmPassword) {
+          this.signupAction(this.user)
+        }
       }
     }
   }
-}
 </script>

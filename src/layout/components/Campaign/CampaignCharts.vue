@@ -24,75 +24,75 @@
 </template>
 
 <script>
-import Chart from './Chart'
+  import Chart from './Chart'
 
-export default {
-  components: {
-    Chart
-  },
-  props: {
-    stats: {
-      type: Object,
-      required: true
-    }
-  },
-  data () {
-    return {
-      options: {
-        hover: false,
-        tooltips: {
-          enabled: false
-        },
-        responsive: true,
-        cutoutPercentage: 80,
-        scaleOverride: true,
-        legend: {
-          display: false
+  export default {
+    components: {
+      Chart
+    },
+    props: {
+      stats: {
+        type: Object,
+        required: true
+      }
+    },
+    data () {
+      return {
+        options: {
+          hover: false,
+          tooltips: {
+            enabled: false
+          },
+          responsive: true,
+          cutoutPercentage: 80,
+          scaleOverride: true,
+          legend: {
+            display: false
+          }
         }
       }
-    }
-  },
-  computed: {
-    charts () {
-      return [
-        {
-          datasets: [{
-            label: '',
-            backgroundColor: '#d6dce2',
-            data: [this.stats.sent],
-            borderWidth: [0]
-          }],
-          labels: ['Sent']
-        },
-        {
-          datasets: [{
-            label: 'Opened',
-            backgroundColor: ['#67798c', '#d6dce2'],
-            data: [this.stats.opened, this.stats.sent - this.stats.opened],
-            borderWidth: [0, 0]
-          }],
-          labels: ['Opened', 'Sent']
-        },
-        {
-          datasets: [{
-            label: 'Replied',
-            backgroundColor: ['#67798c', '#d6dce2'],
-            data: [this.stats.replied, this.stats.sent - this.stats.replied],
-            borderWidth: [0, 0]
-          }],
-          labels: ['Replied', 'Sent']
-        },
-        {
-          datasets: [{
-            label: 'Autoreplied',
-            backgroundColor: ['#67798c', '#d6dce2'],
-            data: [this.stats.autoreplied, this.stats.sent - this.stats.autoreplied],
-            borderWidth: [0, 0]
-          }],
-          labels: ['Autoreplied', 'Sent']
-        }
-      ]
+    },
+    computed: {
+      charts () {
+        return [
+          {
+            datasets: [{
+              label: '',
+              backgroundColor: '#d6dce2',
+              data: [this.stats.sent],
+              borderWidth: [0]
+            }],
+            labels: ['Sent']
+          },
+          {
+            datasets: [{
+              label: 'Opened',
+              backgroundColor: ['#67798c', '#d6dce2'],
+              data: [this.stats.opened, this.stats.sent - this.stats.opened],
+              borderWidth: [0, 0]
+            }],
+            labels: ['Opened', 'Sent']
+          },
+          {
+            datasets: [{
+              label: 'Replied',
+              backgroundColor: ['#67798c', '#d6dce2'],
+              data: [this.stats.replied, this.stats.sent - this.stats.replied],
+              borderWidth: [0, 0]
+            }],
+            labels: ['Replied', 'Sent']
+          },
+          {
+            datasets: [{
+              label: 'Autoreplied',
+              backgroundColor: ['#67798c', '#d6dce2'],
+              data: [this.stats.autoreplied, this.stats.sent - this.stats.autoreplied],
+              borderWidth: [0, 0]
+            }],
+            labels: ['Autoreplied', 'Sent']
+          }
+        ]
+      }
     }
   }
-}
 </script>

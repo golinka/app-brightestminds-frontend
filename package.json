@@ -67,7 +67,39 @@
     ],
     "parserOptions": {
       "parser": "babel-eslint"
-    }
+    },
+    "rules": {
+      "indent": [ "error", 2 ],
+      "no-console": 0,
+      "prefer-const": [ "error", { "destructuring": "all" } ],
+      "no-return-await": 0,
+      "no-unused-expressions": 0,
+      "no-trailing-spaces": 0,
+      "no-multiple-empty-lines": [ "error", { "max": 3 }],
+      "vue/html-closing-bracket-newline": [ "error", {
+        "singleline": "never",
+        "multiline": "always"
+      } ],
+      "vue/max-attributes-per-line": [ "error", {
+        "singleline": 3,
+        "multiline": {
+          "max": 1,
+          "allowFirstLine": false
+        }
+      } ],
+      "vue/attribute-hyphenation": 0,
+      "vue/require-prop-types": 0,
+      "vue/require-default-prop": 0,
+      "vue/script-indent": [ "error", 2, { "baseIndent": 1 } ]
+    },
+    "overrides": [
+      {
+        "files": [ "*.vue" ],
+        "rules": {
+          "indent": "off"
+        }
+      }
+    ]
   },
   "postcss": {
     "plugins": {

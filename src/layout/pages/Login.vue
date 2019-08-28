@@ -87,35 +87,35 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+  import { mapGetters } from 'vuex'
 
-export default {
-  data () {
-    return {
-      error: null,
-      user: {
-        username: null,
-        password: null
+  export default {
+    data () {
+      return {
+        error: null,
+        user: {
+          username: null,
+          password: null
+        }
       }
-    }
-  },
-  computed: {
-    ...mapGetters([
-      'loginMessage'
-    ]),
-    usernameError () {
-      return this.$validator.errors.first('username')
     },
-    passwordError () {
-      return this.$validator.errors.first('password')
-    }
-  },
-  methods: {
-    async login () {
-      if (await this.$validator.validate()) {
-        this.$store.dispatch('LOGIN', this.user)
+    computed: {
+      ...mapGetters([
+        'loginMessage'
+      ]),
+      usernameError () {
+        return this.$validator.errors.first('username')
+      },
+      passwordError () {
+        return this.$validator.errors.first('password')
+      }
+    },
+    methods: {
+      async login () {
+        if (await this.$validator.validate()) {
+          this.$store.dispatch('LOGIN', this.user)
+        }
       }
     }
   }
-}
 </script>

@@ -21,33 +21,33 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+  import { mapGetters } from 'vuex'
 
-export default {
-  props: {
-    cid: {
-      type: String,
-      required: true
-    }
-  },
-  data () {
-    return {
-      columns: ['when', 'email', 'name', 'emails', 'status', 'interest'],
-      options: {
-        fields: ['__slot:interest']
+  export default {
+    props: {
+      cid: {
+        type: String,
+        required: true
       }
+    },
+    data () {
+      return {
+        columns: ['when', 'email', 'name', 'emails', 'status', 'interest'],
+        options: {
+          fields: ['__slot:interest']
+        }
+      }
+    },
+    computed: {
+      ...mapGetters({
+        prospects: 'getProspects'
+      }),
+      iconName () {
+        return (interest) => `${interest ? interest.toLowerCase() : 'not-reaction'}-icon`
+      }
+    },
+    mounted () {
+      this.$store.dispatch('GET_PROSPECTS', this.cid)
     }
-  },
-  computed: {
-    ...mapGetters({
-      prospects: 'getProspects'
-    }),
-    iconName () {
-      return (interest) => `${interest ? interest.toLowerCase() : 'not-reaction'}-icon`
-    }
-  },
-  mounted () {
-    this.$store.dispatch('GET_PROSPECTS', this.cid)
   }
-}
 </script>
