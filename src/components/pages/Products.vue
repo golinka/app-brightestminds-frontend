@@ -21,7 +21,7 @@
 
 <script>
   import { mapGetters } from 'vuex'
-  import Product from '../components/ProductBlock'
+  import Product from '../layout/ProductBlock'
 
   export default {
     components: {

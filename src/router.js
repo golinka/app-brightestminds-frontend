@@ -1,14 +1,14 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Cookie from 'js-cookie'
-import Dashboard from './layout/pages/Dashboard'
-import Campaign from './layout/pages/Campaign'
-import Products from './layout/pages/Products'
-import Product from './layout/pages/Product'
-import Subscriptions from './layout/pages/Subscriptions'
-import Profile from './layout/pages/Profile'
-import Login from './layout/pages/Login'
-import Signup from './layout/pages/Signup'
+import Dashboard from './components/pages/Dashboard'
+import Campaign from './components/pages/Campaign'
+import Products from './components/pages/Products'
+import Product from './components/pages/Product'
+import Subscriptions from './components/pages/Subscriptions'
+import Profile from './components/pages/Profile'
+import Login from './components/pages/Login'
+import Signup from './components/pages/Signup'
 
 Vue.use(Router)
 

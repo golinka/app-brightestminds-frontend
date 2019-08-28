@@ -26,10 +26,10 @@
   import Cookie from 'js-cookie'
   import { mapActions } from 'vuex'
 
-  import Header from './components/Header.vue'
-  import Sidebar from './components/Sidebar.vue'
-  import Footer from './components/Footer.vue'
-  import Loader from './components/Loader.vue'
+  import Header from './layout/Header.vue'
+  import Sidebar from './layout/Sidebar.vue'
+  import Footer from './layout/Footer.vue'
+  import Loader from './layout/Loader.vue'
 
   export default {
     components: {

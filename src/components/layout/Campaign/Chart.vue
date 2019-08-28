@@ -12,7 +12,6 @@
       },
       options: {
         type: Object,
-        required: false,
         default: () => ({})
       }
     },
