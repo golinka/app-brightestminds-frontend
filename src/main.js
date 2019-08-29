@@ -1,15 +1,13 @@
 import Vue from 'vue'
-import App from './components/App.vue'
-import store from './store/store'
 import moment from 'vue-moment'
 import VeeValidate from 'vee-validate'
-import router from './router'
 import { ClientTable } from 'vue-tables-2'
 import VueFlashMessage from 'vue-flash-message'
+import App from '@/components/App.vue'
+import Icon from '@/components/layout/Icon'
+import store from '@/store/store'
+import router from '@/router'
 
-import Icon from './components/layout/Icon'
-
-import 'bootstrap/scss/bootstrap.scss'
 import 'vue-flash-message/dist/vue-flash-message.min.css'
 import '@/assets/scss/app.scss'
 

@@ -55,7 +55,7 @@
 
 <script>
   import { mapGetters } from 'vuex'
-  import InputLabel from '../layout/InputLabel'
+  import InputLabel from '@/components/layout/InputLabel'
 
   export default {
     components: {

@@ -59,7 +59,7 @@
 
 <script>
   import { mapGetters } from 'vuex'
-  import CampaignBlock from '../layout/Campaign/CampaignBlock'
+  import CampaignBlock from '@/components/layout/Campaign/CampaignBlock'
 
   export default {
     components: {

@@ -29,8 +29,8 @@
 
 <script>
   import { mapGetters } from 'vuex'
-  import CampaignCharts from '../layout/Campaign/CampaignCharts'
-  import CampaignProspects from '../layout/Campaign/CampaignProspects'
+  import CampaignCharts from '@/components/layout/Campaign/CampaignCharts'
+  import CampaignProspects from '@/components/layout/Campaign/CampaignProspects'
 
   export default {
     components: {

@@ -47,7 +47,7 @@
 
 <script>
   import { mapGetters } from 'vuex'
-  import Subscription from '../layout/Subscription/SubscriptionBlock'
+  import Subscription from '@/components/layout/Subscription/SubscriptionBlock'
 
   export default {
     components: {
