@@ -5,30 +5,19 @@
       :key="index"
       class="col-3"
     >
-      <div class="campaign-chart">
-        <div class="campaign-chart__block">
-          <Chart
-            :chart-data="chart"
-            :options="options"
-          />
-          <div class="campaign-chart__value">
-            {{ chart.datasets[0].data[0] }}
-          </div>
-        </div>
-        <div class="campaign-chart__label mt-2">
-          {{ chart.labels[0] }}
-        </div>
-      </div>
+      <CampaignChart
+        :chart="chart"
+      />
     </div>
   </div>
 </template>
 
 <script>
-  import Chart from './Chart'
+  import CampaignChart from './CampaignChart'
 
   export default {
     components: {
-      Chart
+      CampaignChart
     },
     props: {
       stats: {
@@ -38,23 +27,7 @@
     },
     data () {
       return {
-        options: {
-          hover: false,
-          tooltips: {
-            enabled: false
-          },
-          responsive: true,
-          cutoutPercentage: 80,
-          scaleOverride: true,
-          legend: {
-            display: false
-          }
-        }
-      }
-    },
-    computed: {
-      charts () {
-        return [
+        charts: [
           {
             datasets: [{
               label: '',

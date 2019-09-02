@@ -259,3 +259,268 @@
     </div>
   </footer>
 </template>
+
+<style lang="scss">
+  .footer {
+    padding-top: 4rem;
+    padding-bottom: 2rem;
+    margin-bottom: -2em;
+    font-size: 14px;
+    background: linear-gradient(180deg, #2b3848 0%, #3a485b 66.62%, #445367 100%);
+
+    &__block {
+      flex-basis: 16%;
+      padding-bottom: 1.5em;
+
+      &--text {
+        flex-basis: 28%;
+      }
+    }
+
+    &__row {
+      border-bottom: 1px solid #8c95a1;
+    }
+
+    &__title {
+      margin-bottom: 0.7em;
+      font-family: "Tahoma", sans-serif;
+      font-weight: 600;
+      color: #53637d;
+      text-transform: uppercase;
+    }
+
+    &__adition {
+      a {
+        color: #8c95a1;
+
+        &:hover {
+          color: white;
+          text-decoration: underline;
+        }
+      }
+    }
+
+    &__text p {
+      max-width: 15em;
+      font-size: 0.9em;
+      font-weight: 300;
+      line-height: 1.4;
+      color: white;
+    }
+
+    &__links {
+      ul {
+        padding-left: 0;
+
+        li {
+          line-height: 1;
+          list-style: none;
+
+          a {
+            display: block;
+            padding: 0.3rem 0;
+            font-size: 0.9em;
+            font-weight: 300;
+            color: white;
+
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+    }
+
+    &__address {
+      p {
+        margin-bottom: 0;
+        font-size: 0.9em;
+        font-weight: 300;
+        line-height: 1.3;
+        color: white;
+      }
+    }
+
+    &__logo {
+      align-items: center;
+      font-size: 0.8em;
+      color: #8c95a1;
+
+      img {
+        width: 14.5em;
+        height: 3em;
+        margin-right: 2em;
+      }
+
+      a {
+        max-height: 3.5em;
+
+        svg {
+          max-width: 13.5em;
+          max-height: 3.5em;
+          margin-right: 2em;
+        }
+      }
+
+      span {
+        margin-right: 3em;
+      }
+    }
+
+    &__copy {
+      span {
+        margin-right: 3em;
+      }
+    }
+
+    &__made {
+      font-size: 0.8em;
+      color: #8c95a1;
+
+      svg {
+        position: relative;
+        top: -0.1em;
+        display: inline-block;
+        width: 0.9em;
+        height: 0.9em;
+        margin: 0 0.2em;
+        fill: #8c95a1;
+      }
+    }
+
+    .social {
+      padding-left: 0;
+      margin-top: 0.5em;
+
+      li {
+        list-style: none;
+
+        a {
+          padding: 0.6em 0.3em;
+
+          svg {
+            width: 1.5em;
+            height: 1em;
+            fill: #556882;
+            transition: all 0.3s ease;
+          }
+
+          &:hover svg {
+            fill: #7b8ea9;
+          }
+        }
+
+        &:first-child {
+          margin-left: -0.5em;
+        }
+      }
+    }
+  }
+
+  @media all and (max-width: 992px) {
+    .footer {
+      &__block,
+      &__logo,
+      &__made {
+        font-size: 12px;
+      }
+
+      &__logo img {
+        max-width: 10.5em;
+      }
+    }
+  }
+
+  @media all and (max-width: 767px) {
+    .footer {
+      &__logo,
+      &__made {
+        width: 100%;
+      }
+
+      &__logo span {
+        order: 1;
+        margin-right: 0;
+        margin-left: 2em;
+      }
+    }
+  }
+
+  @media all and (max-width: 575px) {
+    .footer {
+      &__block {
+        flex-basis: 33%;
+        padding: 0 15px;
+        margin-bottom: 2em;
+      }
+
+      &__logo,
+      &__made {
+        padding: 0 15px;
+      }
+
+      &__logo {
+        margin-bottom: 0.5em;
+
+        a {
+          margin-bottom: 0.5rem;
+        }
+
+        img {
+          max-width: 14em;
+        }
+      }
+
+      &__links li a {
+        line-height: 1.1;
+      }
+
+      &__address,
+      &__text {
+        p {
+          line-height: 1.5;
+        }
+      }
+
+      .social {
+        width: 10em;
+
+        li a svg {
+          width: 2.5em;
+          height: 1.3em;
+        }
+      }
+    }
+  }
+
+  @media all and (max-width: 480px) {
+    .footer {
+      &__adition {
+        display: none !important;
+      }
+
+      &__logo,
+      &__made {
+        justify-content: center !important;
+      }
+    }
+  }
+
+  @media all and (max-width: 400px) {
+    .footer {
+      &__block {
+        flex-basis: 100%;
+        font-size: 14px;
+        text-align: center;
+
+        .social {
+          margin: 0.5em auto 0;
+        }
+      }
+
+      &__text p {
+        margin: 0 auto;
+      }
+    }
+  }
+</style>
